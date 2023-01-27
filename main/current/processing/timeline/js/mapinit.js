@@ -68,7 +68,7 @@ const WorldBounds = [
 /////////////////////////////
 
 mapboxgl.accessToken =
-	"pk.eyJ1IjoiZ2xvYmFsd2VibWFwcGVyIiwiYSI6ImNsY3pzMmdwbTA4ZXkzb215cjY5YWp0ajkifQ.ARLXGi9WlLNpgDhN-FcKuA";
+	"pk.eyJ1Ijoibml0dHlqZWUiLCJhIjoid1RmLXpycyJ9.NFk875-Fe6hoRCkGciG8yQ";
 
 
 
@@ -840,9 +840,6 @@ function changeDate(unixDate) {
 	//NAHC
 	beforeMap.setFilter("grants1-5sp9tb-left", dateFilter);
     afterMap.setFilter("grants1-5sp9tb-right", dateFilter);
-
-	beforeMap.setFilter("grants-missouri-left", dateFilter);
-    afterMap.setFilter("grants-missouri-right", dateFilter);
 	
 	beforeMap.setFilter("grants1-5sp9tb-left-highlighted", dateFilter);
 	afterMap.setFilter("grants1-5sp9tb-right-highlighted", dateFilter);

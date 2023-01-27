@@ -73,34 +73,6 @@ function addAfterLayers(yr, date) {
 			filter: ["all", ["<=", "DayStart", date], [">=", "DayEnd", date]]
 		});
 
-        afterMap.addLayer({
-			//ID: CHANGE THIS, 1 OF 3
-			id: "grants-missouri-right",
-			type: "fill",
-			source: {
-				type: "vector",
-				//URL: CHANGE THIS, 2 OF 3
-				url: "mapbox://globalwebmapper.50i5vln8"
-			},
-			layout: {
-                visibility: document.getElementById('grants_layer_miss').checked ? "visible" : "none",
-            },
-			"source-layer": "Missouri_Boundaries-0kvejd",
-			paint: {
-				"fill-color": "#e3ed58",
-				"fill-opacity": [ 
-					    'case',
-                        ['boolean', ['feature-state', 'hover'], false],
-                            0.8,
-                            0.45
-                        ],
-				"fill-outline-color": "#FF0000"
-
-			},
-
-			filter: ["all", ["<=", "DayStart", date], [">=", "DayEnd", date]]
-		});
-
 
         //CURSOR ON HOVER
             //ON HOVER

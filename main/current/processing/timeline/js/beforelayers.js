@@ -18,11 +18,10 @@ function addBeforeLayers(yr, date) {
         if (beforeMap.getSource("c7_dates-ajsksu")) beforeMap.removeSource("c7_dates-ajsksu");
 		if (beforeMap.getLayer("grants1-5sp9tb-left")) beforeMap.removeLayer("grants1-5sp9tb-left");
         if (beforeMap.getSource("grants1-5sp9tb")) beforeMap.removeSource("grants1-5sp9tb");
-        if (beforeMap.getSource("Missouri_Boundaries-0kvejd")) beforeMap.removeSource("Missouri_Boundaries-0kvejd");
+       
 	   
 	    //ADD GRANTS POLYGONS
         //*A#
-        
         beforeMap.addLayer({
 			//ID: CHANGE THIS, 1 OF 3
 			id: "grants1-5sp9tb-left-highlighted",
@@ -65,35 +64,6 @@ function addBeforeLayers(yr, date) {
                 visibility: document.getElementById('grants_layer').checked ? "visible" : "none",
             },
 			"source-layer": "grants1-5sp9tb",
-			paint: {
-				"fill-color": "#e3ed58",
-				"fill-opacity": [ 
-					    'case',
-                        ['boolean', ['feature-state', 'hover'], false],
-                            0.8,
-                            0.5
-                        ],
-				"fill-outline-color": "#000000"
-
-			},
-
-			filter: ["all", ["<=", "DayStart", date], [">=", "DayEnd", date]]
-		});
-
-
-        beforeMap.addLayer({
-			//ID: CHANGE THIS, 1 OF 3
-			id: "grants-missouri-left",
-			type: "fill",
-			source: {
-				type: "vector",
-				//URL: CHANGE THIS, 2 OF 3
-				url: "mapbox://globalwebmapper.50i5vln8"
-			},
-			layout: {
-                visibility: document.getElementById('grants_layer_miss').checked ? "visible" : "none",
-            },
-			"source-layer": "Missouri_Boundaries-0kvejd",
 			paint: {
 				"fill-color": "#e3ed58",
 				"fill-opacity": [ 
