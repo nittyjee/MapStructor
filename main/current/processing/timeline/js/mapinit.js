@@ -221,10 +221,6 @@ mapboxgl.accessToken =
 			    beforeMap.easeTo({center: [-72.898,42.015], zoom: 7, bearing: 0, pitch: 0});
 			    afterMap.easeTo({center: [-72.898,42.015], zoom: 7, bearing: 0, pitch: 0});
 				break;
-				case 'Missouri':
-			    beforeMap.easeTo({center: [-92.550,38.567], zoom: 6.4, bearing: 0, pitch: 0});
-			    afterMap.easeTo({center: [-92.550,38.567], zoom: 6.4, bearing: 0, pitch: 0});
-				break;
 			}
 		}
 
