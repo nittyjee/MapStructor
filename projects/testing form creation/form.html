@@ -1,0 +1,173 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <!--=============== basic  ===============-->
+        <meta charset="UTF-8">
+        <title>Homeradar - Real Estate Listing Template</title>
+        <meta name="robots" content="index, follow"/>
+        <meta name="keywords" content=""/>
+        <meta name="description" content=""/>
+        <!--=============== css  ===============-->	
+        <link type="text/css" rel="stylesheet" href="css/plugins.css">
+        <link type="text/css" rel="stylesheet" href="css/style.css">
+        <link type="text/css" rel="stylesheet" href="css/dashboard-style.css">
+        <link type="text/css" rel="stylesheet" href="css/color.css">
+        <!--=============== favicons ===============-->
+        <link rel="shortcut icon" href="images/favicon.ico">
+    </head>
+    <body>
+        <!--loader-->
+        <div class="loader-wrap">
+            <div class="loader-inner">
+                <svg>
+                    <defs>
+                        <filter id="goo">
+                            <fegaussianblur in="SourceGraphic" stdDeviation="2" result="blur" />
+                            <fecolormatrix in="blur"   values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 5 -2" result="gooey" />
+                            <fecomposite in="SourceGraphic" in2="gooey" operator="atop"/>
+                        </filter>
+                    </defs>
+                </svg>
+            </div>
+        </div>
+        <!--loader end-->
+        <!-- main -->
+        <div id="main">
+            <!-- header -->
+           
+            <!-- header end  -->	
+            <!-- wrapper  -->	
+            
+                           
+                      
+                          						
+                            <!-- dasboard-widget-title -->
+                            <div class="dasboard-widget-title dwb-mar fl-wrap" id="sec4">
+                                <h5><i class="fas fa-list"></i>Add Listing Details</h5>
+                            </div>
+                            <!-- dasboard-widget-title end -->
+                            <!-- dasboard-widget-box  -->
+                            <div class="dasboard-widget-box   fl-wrap">
+                                <div class="custom-form">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <label>Name: <span class="dec-icon"><i class="far fa-signature"></i></span></label>
+                                                    <input type="text" placeholder="Layer Name" value=""/>											
+                                                    <label>Source Name: <span class="dec-icon"><i class="far fa-users"></i></span></label>
+                                                    <input type="text" placeholder="Source Name" value=""/>													
+                                                    <label>Identification <span class="dec-icon"><i class="far fa-fingerprint"></i></span></label>
+                                                    <input type="text" placeholder="Identification" value=""/>													
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <label>Type: <span class="dec-icon"><i class="far fa-globe"></i></span></label>
+                                                    <input type="text" placeholder="Type" value=""/>
+                                                    <label>Database: <span class="dec-icon"><i class="far fa-database"></i></span></label>
+                                                    <input type="text" placeholder="Database" value=""/>												
+                                                    <label>Group: <span class="dec-icon"><i class="far fa-layer-group"></i></span></label>
+                                                    <input type="text" placeholder="Group" value=""/>														
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class=" add-list-tags fl-wrap">
+                                                <!-- Checkboxes -->
+                                                <ul class="fl-wrap filter-tags no-list-style ds-tg">
+                                                    <li>
+                                                        <input id="check-aaa5" type="checkbox" name="check" >
+                                                        <label for="check-aaa5"> Hover</label>
+                                                    </li>
+                                                    
+                                                    <li>
+                                                        <input id="check-bb5" type="checkbox" name="check" >
+                                                        <label for="check-bb5">Click</label>
+                                                    </li>
+                                                    <li>
+                                                        <input id="check-dd5" type="checkbox" name="check">
+                                                        <label for="check-dd5"> Sidebar</label>
+                                                    </li>
+                                                    <li>
+                                                        <input id="check-cc5" type="checkbox" name="check">
+                                                        <label for="check-cc5"> Slider</label>
+                                                    </li>
+                                                   
+                                                </ul>
+                                                <!-- Checkboxes end -->												
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                   
+                                    
+                                </div>
+
+                                <a href="#" class="btn  color-bg float-btn" onclick="save_func()">Save Changes </a>
+                            </div>
+                            
+                                        <!-- content-widget-switcher end-->
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- dasboard-widget-box  end-->
+                           
+                        </div>
+                    </div>
+                    <div class="limit-box fl-wrap"></div>
+                   		
+                </div>
+                <!-- content end -->	
+                <div class="dashbard-bg gray-bg"></div>
+            </div>
+            <!-- wrapper end -->
+        </div>
+
+        <script>
+
+            function save_func(){
+               
+        
+                var  name = document.getElementById("name").value;
+                var  source_name = document.getElementById("source_name").value;
+                 var  type = document.getElementById('type').value;
+                var  database = document.getElementById('database').value;
+                var  group = document.getElementById('group').value;
+                 var  slider = document.getElementById('slider').value;
+                // var  name = document.getElementById('name').value;
+                var data =[];
+                data.push(name, source_name, type, database, group, slider);
+                alert(data);
+        
+                var data_string = JSON.stringify(data);
+        
+                var file = new Blob([data_string], {type : "text"});
+        
+                var anchor = document.createElement('a');
+        
+                anchor.href = URL.createObjectURL(file)
+        
+                anchor.download = "data.txt";
+        
+                anchor.click();
+        
+        
+                // var  type = document.getElementById(type)
+                // var  database = document.getElementById(database)
+                // var  group = document.getElementById(group)
+                // var  name = document.getElementById(name)
+                // var  name = document.getElementById(name)
+                alert(name +" "+source_name);
+            }
+           </script>
+        <!-- Main end -->
+        <!--=============== scripts  ===============-->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/scripts.js"></script>
+      
+        <script src="js/map-add.js"></script>
+        <script src="js/dashboard.js"></script>
+    </body>
+</html>
