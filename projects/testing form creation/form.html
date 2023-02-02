@@ -54,19 +54,19 @@
                                             <div class="row">
                                                 <div class="col-sm-6">
                                                     <label>Name: <span class="dec-icon"><i class="far fa-signature"></i></span></label>
-                                                    <input type="text" placeholder="Layer Name" value=""/>											
+                                                    <input type="text" placeholder="Layer Name" id="name" value=""/>											
                                                     <label>Source Name: <span class="dec-icon"><i class="far fa-users"></i></span></label>
-                                                    <input type="text" placeholder="Source Name" value=""/>													
+                                                    <input type="text" placeholder="Source Name" id="source_name" value=""/>													
                                                     <label>Identification <span class="dec-icon"><i class="far fa-fingerprint"></i></span></label>
-                                                    <input type="text" placeholder="Identification" value=""/>													
+                                                    <input type="text" placeholder="Identification" id="ident" value=""/>													
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <label>Type: <span class="dec-icon"><i class="far fa-globe"></i></span></label>
-                                                    <input type="text" placeholder="Type" value=""/>
+                                                    <input type="text" placeholder="Type" id="type" value=""/>
                                                     <label>Database: <span class="dec-icon"><i class="far fa-database"></i></span></label>
-                                                    <input type="text" placeholder="Database" value=""/>												
+                                                    <input type="text" placeholder="Database" id="database" value=""/>												
                                                     <label>Group: <span class="dec-icon"><i class="far fa-layer-group"></i></span></label>
-                                                    <input type="text" placeholder="Group" value=""/>														
+                                                    <input type="text" placeholder="Group" id="group" value=""/>														
                                                 </div>
                                             </div>
                                         </div>
@@ -123,50 +123,12 @@
             </div>
             <!-- wrapper end -->
         </div>
-
-        <script>
-
-            function save_func(){
-               
-        
-                var  name = document.getElementById("name").value;
-                var  source_name = document.getElementById("source_name").value;
-                 var  type = document.getElementById('type').value;
-                var  database = document.getElementById('database').value;
-                var  group = document.getElementById('group').value;
-                 var  slider = document.getElementById('slider').value;
-                // var  name = document.getElementById('name').value;
-                var data =[];
-                data.push(name, source_name, type, database, group, slider);
-                alert(data);
-        
-                var data_string = JSON.stringify(data);
-        
-                var file = new Blob([data_string], {type : "text"});
-        
-                var anchor = document.createElement('a');
-        
-                anchor.href = URL.createObjectURL(file)
-        
-                anchor.download = "data.txt";
-        
-                anchor.click();
-        
-        
-                // var  type = document.getElementById(type)
-                // var  database = document.getElementById(database)
-                // var  group = document.getElementById(group)
-                // var  name = document.getElementById(name)
-                // var  name = document.getElementById(name)
-                alert(name +" "+source_name);
-            }
-           </script>
         <!-- Main end -->
         <!--=============== scripts  ===============-->
         <script src="js/jquery.min.js"></script>
         <script src="js/plugins.js"></script>
         <script src="js/scripts.js"></script>
-      
+        <script src="form.js"></script>
         <script src="js/map-add.js"></script>
         <script src="js/dashboard.js"></script>
     </body>
