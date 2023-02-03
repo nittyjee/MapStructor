@@ -14,6 +14,8 @@
         <link type="text/css" rel="stylesheet" href="css/color.css">
         <!--=============== favicons ===============-->
         <link rel="shortcut icon" href="images/favicon.ico">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.0.2/cleave-angular.js" integrity="sha512-VzbkVLRV0EcQdbnZAX5hsFmJkF8kuVW34gwtOiP80vmhu8Qz0EQldqvkItuqhUvJ6EeedFZvcTKaWFoUpSieIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     </head>
     <body>
         <!--loader-->
@@ -54,7 +56,7 @@
                                             <div class="row">
                                                 <div class="col-sm-6">
                                                     <label>Name: <span class="dec-icon"><i class="far fa-signature"></i></span></label>
-                                                    <input type="text" placeholder="Layer Name" id="name" value=""/>											
+                                                    <input type="text" placeholder="" id="name" value="" class="passname"/>											
                                                      <label>Type</label>
                                                      <div class="listsearch-input-item">
                                                         <select data-placeholder="All Types" class="chosen-select no-search-select" style="display: none;">
@@ -133,12 +135,24 @@
             </div>
             <!-- wrapper end -->
         </div>
+
+
+
+        <script>
+             new Cleave ('.passname',{
+                    // suffix : 'PAXTO',
+                    delimiter: '_',
+                    blocks: [6,6],
+                    lowercase: true
+                });
+        </script>
         <!-- Main end -->
         <!--=============== scripts  ===============-->
         <script src="js/jquery.min.js"></script>
         <script src="js/plugins.js"></script>
         <script src="js/scripts.js"></script>
         <script src="form.js"></script>
+        
         <script src="js/map-add.js"></script>
         <script src="js/dashboard.js"></script>
     </body>
