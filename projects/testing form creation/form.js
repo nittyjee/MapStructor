@@ -8,10 +8,13 @@ function save_func(){
     var  type = document.getElementById('type').value;
     var  database = document.getElementById('database').value;
     var  group = document.getElementById('group').value;
-     var  slider = document.getElementById('check-aaa5').value;
+    var  hover = document.getElementById('check-aaa5').value;
+    var  click = document.getElementById('check-bb5').value;
+    var  sidebar = document.getElementById('check-dd5').value;
+     var  slider = document.getElementById('check-cc5').value;
     // var  name = document.getElementById('name').value;
     var data =[];
-    data.push(name, source_name, type, database, group, slider);
+    data.push( name, source_name, type, database, group, hover, click, sidebar,slider);
     alert(data);
 
     var data_string = JSON.stringify(data);
