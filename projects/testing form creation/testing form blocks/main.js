@@ -16,10 +16,15 @@ let text = await fileData.text();
 textarea.innerText = text;
 }
 
-
 async function save(){
     let stream = await fileHandle.createWritable();
     await stream.write(textarea.innerText);
     await stream.close();
     
 }
+
+async function saveAs(){
+  console.log 
+  
+}
+
