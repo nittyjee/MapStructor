@@ -1,5 +1,7 @@
+// Declare variable
 let fileHandle;
 
+// asynchronous fuction attached to button
 async function button(){
   [fileHandle] = await window.showOpenFilePicker();
 //   console.log(fileHandle.kind);
@@ -16,7 +18,7 @@ let text = await fileData.text();
 textarea.innerText = text;
 }
 
-
+// save functionality that edits the doc
 async function save(){
     let stream = await fileHandle.createWritable();
     await stream.write(textarea.innerText);
