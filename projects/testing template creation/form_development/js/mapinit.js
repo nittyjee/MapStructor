@@ -6,6 +6,7 @@ const WorldBounds = [
 
 // area bounds
 	var LongIslandBounds = [[-74.0419692,40.5419011],[-71.8562705,41.161155]],
+	    NAbounds = [[-74.0147037576672,40.702706170726174],[-74.00814312149578,40.7080579912966]],
         ManhattanBounds = [[-74.04772962697074,40.682916945445164],[-73.90665099539478,40.879038046804695]],
 		NYCbounds = [[-74.25559136315213,40.496133987611834],[-73.7000090638712,40.91553277650267]],
 		BronxBounds = [[-73.93360592036706,40.785356620508495],[-73.76533243995276,40.91553277650267]],
@@ -111,11 +112,16 @@ mapboxgl.accessToken =
 			    beforeMap.fitBounds(ManhattanBounds, {bearing: na_bearing});
 				afterMap.fitBounds(ManhattanBounds, {bearing: na_bearing});
 				break;
+				case 'NewAmsterdam':
+			    beforeMap.fitBounds(NAbounds, {bearing: na_bearing});
+				afterMap.fitBounds(NAbounds, {bearing: na_bearing});
+				break;
 				case 'World':
 			    beforeMap.fitBounds(WorldBounds, {bearing: 0});
 				afterMap.fitBounds(WorldBounds, {bearing: 0});
 				break;
 			}
+			console.warn(boundsName);
 		}
 		
 		function zoomtocenter(centerName){
@@ -316,6 +322,7 @@ afterMap.on('style.load', function () {
 	//addAfterLayers();
 	addAfterLayers(yr,date);
 });
+
 
 
 
