@@ -80,6 +80,7 @@
 	   <td>
 	        <select name="zoom-bounds" required>
             <option selected value="" > - select - </option>
+			<option>NewAmsterdam</option>
             <option>NYC</option>
 			<option>Brooklyn</option>
 			<option>Manhattan</option>
@@ -139,9 +140,10 @@
 		</table>
 		
 		<table id="fill-params">
+		<tr>
 		<th >Enable Mouse Over:</th>
 	    <td>
-        <input type="checkbox" name="mouse-over" id="mouse-over">
+        <input type="checkbox" name="fill-mouse-over" id="fill-mouse-over">
 	    </td>
 	    </tr>
 		<tr><th>fill-color:</th><td><input type="text" name="fill-color" size="21" pattern="^[\d\D]{3,}$" ></td></tr>
@@ -160,6 +162,12 @@
 		</table>
 		
 		<table id="circle-params">
+		<tr>
+		<th >Enable Mouse Over:</th>
+	    <td>
+        <input type="checkbox" name="circle-mouse-over" id="circle-mouse-over">
+	    </td>
+	    </tr>
 		<tr><th>circle-color:</th><td><input type="text" name="circle-color" size="21" pattern="^[\d\D]{3,}$" ></td></tr>
 		<tr><th>circle-opacity:</th><td><input type="text" name="circle-opacity" size="3"></td></tr>
 		<tr><th>circle-radius:</th><td><input type="text" name="circle-radius" size="3"></td></tr>
@@ -261,9 +269,9 @@ if (!empty($_REQUEST['action-type'])) {
 			}
 		    if (!empty($_POST['fill-opacity']))
 		        $xml_record_paint->addChild("fill-opacity", $_POST['fill-opacity']);
-			if(!empty($_POST['mouse-over'])) {
-				//echo "<br><br>Mouse Over Flag: ".$_POST['mouse-over']."<br><br>";
-				if($_POST['mouse-over'] == "on"){
+			if(!empty($_POST['fill-mouse-over'])) {
+				//echo "<br><br>Mouse Over Flag: ".$_POST['fill-mouse-over']."<br><br>";
+				if($_POST['fill-mouse-over'] == "on"){
 			        if (!empty($_POST['fill-opacity-hover']))
 		                $xml_record_paint->addChild("fill-opacity-hover", $_POST['fill-opacity-hover']);
 				}
@@ -283,6 +291,9 @@ if (!empty($_REQUEST['action-type'])) {
 		        $xml_record_paint->addChild("line-opacity", $_POST['line-opacity']);
             break;
 			case 'circle':
+			if(!empty($_POST['circle-mouse-over'])) {
+			    $xml_record->addChild("circle-hover", $_POST['circle-mouse-over']);
+			}
 			if (!empty($_POST['circle-color'])) {
 				//$xml_record->addChild("color", $_POST['circle-color']);
 		        $xml_record_paint->addChild("circle-color", $_POST['circle-color']);
@@ -348,9 +359,9 @@ if (!empty($_REQUEST['action-type'])) {
 			}
 		    if (!empty($_POST['fill-opacity']))
 		        $xml_record_paint->addChild("fill-opacity", $_POST['fill-opacity']);
-			if(!empty($_POST['mouse-over'])) {
-				//echo "<br><br>Mouse Over Flag: ".$_POST['mouse-over']."<br><br>";
-				if($_POST['mouse-over'] == "on"){
+			if(!empty($_POST['fill-mouse-over'])) {
+				//echo "<br><br>Mouse Over Flag: ".$_POST['fill-mouse-over']."<br><br>";
+				if($_POST['fill-mouse-over'] == "on"){
 			        if (!empty($_POST['fill-opacity-hover']))
 		                $xml_record_paint->addChild("fill-opacity-hover", $_POST['fill-opacity-hover']);
 				}
@@ -370,6 +381,10 @@ if (!empty($_REQUEST['action-type'])) {
 		        $xml_record_paint->addChild("line-opacity", $_POST['line-opacity']);
             break;
 			case 'circle':
+			unset($xml_record->{"circle-hover"});
+			if(!empty($_POST['circle-mouse-over'])) {
+			    $xml_record->addChild("circle-hover", $_POST['circle-mouse-over']);
+			}
 			if (!empty($_POST['circle-color'])) {
 				//$xml_record->addChild("color", $_POST['circle-color']);
 		        $xml_record_paint->addChild("circle-color", $_POST['circle-color']);
@@ -418,6 +433,7 @@ if (!empty($_REQUEST['action-type'])) {
 				unset($xml->record[$act_node_num]->{"zoom-bounds"});
 				unset($xml->record[$act_node_num]->filter);
 				unset($xml->record[$act_node_num]->type);
+				unset($xml->record[$act_node_num]->{"circle-hover"});
 				/*
 				foreach($xml->record[$act_node_num]->children() as $child) {
 				    echo "<br>".$child->getName()."<br>";
@@ -440,6 +456,7 @@ if (!empty($_REQUEST['action-type'])) {
 				unset($xml->record[$act_node_num-1]->{"zoom-bounds"});
 				unset($xml->record[$act_node_num-1]->filter);
 				unset($xml->record[$act_node_num-1]->type);
+				unset($xml->record[$act_node_num-1]->{"circle-hover"});
 				
 				foreach($rec_to_move as $rec_to_move_name => $rec_to_move_val) {
 					//echo "<br>".$rec_to_move_name." : ".$rec_to_move_val."<br>";
@@ -493,6 +510,7 @@ if (!empty($_REQUEST['action-type'])) {
 				unset($xml->record[$act_node_num+1]->{"zoom-bounds"});
 				unset($xml->record[$act_node_num+1]->filter);
 				unset($xml->record[$act_node_num+1]->type);
+				unset($xml->record[$act_node_num+1]->{"circle-hover"});
 				
 				
 				foreach($rec_to_down as $rec_to_down_name => $rec_to_down_val) {
@@ -704,11 +722,11 @@ echo $tableHTML;
 		        $("range[name=fill-opacity]").val(layerParams["paint"]["fill-opacity"] === "undefined" ? "0.5" : layerParams["paint"]["fill-opacity"]);
 		        $("#fill-opacity-info").text(layerParams["paint"]["fill-opacity"] === "undefined" ? "0.5" : layerParams["paint"]["fill-opacity"]);
 		        if(typeof layerParams["paint"]["fill-opacity-hover"] === "undefined") {
-		            $("input[name=mouse-over]").prop("checked", false);
+		            $("input[name=fill-mouse-over]").prop("checked", false);
 				    $("range[name=fill-opacity-hover]").val("0.8");
 				    $("#fill-opacity-hover-info").text("0.8");
 		        } else {
-		            $("input[name=mouse-over]").prop("checked", true);
+		            $("input[name=fill-mouse-over]").prop("checked", true);
 				    $("range[name=fill-opacity-hover]").val(layerParams["paint"]["fill-opacity-hover"]);
 				    $("#fill-opacity-hover-info").text(layerParams["paint"]["fill-opacity-hover"]);
 		        }
@@ -724,6 +742,12 @@ echo $tableHTML;
 		        $("input[name=circle-stroke-width]").val(typeof layerParams["paint"]["circle-stroke-width"] === "object" ? "" : layerParams["paint"]["circle-stroke-width"]);
 		        $("input[name=circle-stroke-color]").val(typeof layerParams["paint"]["circle-stroke-color"] === "object" ? "" : layerParams["paint"]["circle-stroke-color"]);
 		        $("input[name=circle-stroke-opacity]").val(typeof layerParams["paint"]["circle-stroke-opacity"] === "object" ? "" : layerParams["paint"]["circle-stroke-opacity"]);
+				if(typeof layerParams["circle-hover"] !== "undefined") {
+					if(layerParams["circle-hover"] == "on")
+						$("input[name=circle-mouse-over]").prop("checked", true);
+					else
+		                $("input[name=circle-mouse-over]").prop("checked", false);
+				}
 			break;
 		}
 		
@@ -754,13 +778,14 @@ echo $tableHTML;
 		       $("input[name=line-color]").val("");
 		       $("input[name=line-width]").val("");
 		       $("input[name=line-opacity]").val("");
-			   $("input[name=mouse-over]").prop("checked", false);
+			   $("input[name=fill-mouse-over]").prop("checked", false);
 		       $("input[name=fill-color]").val("");
 		       $("range[name=fill-opacity]").val("0.5");
 		       $("range[name=fill-opacity-hover]").val("0.8");
 		       $("#fill-opacity-info").text("0.5");
 		       $("#fill-opacity-hover-info").text("0.8");
 		       $("input[name=fill-outline-color]").val("");
+			   $("input[name=circle-mouse-over]").prop("checked", false);
 		       $("input[name=circle-color]").val("");
 		       $("input[name=circle-opacity]").val("");
 		       $("input[name=circle-radius]").val("");
