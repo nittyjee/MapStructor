@@ -248,12 +248,24 @@ else
 				foreach($layersArr["record"] as $a_layer) {
 				
 				    $mouse_hover_flag = false;
+					$circle_hover_flag = false;
+					$bg_color = "#FFFFFF";
 		            $js_id = str_replace('-', '_', $a_layer["ID"]);
 					
 		            if($a_layer["type"] == "fill") {
 		                if((!empty($a_layer["paint"]["fill-opacity"])) && (!empty($a_layer["paint"]["fill-opacity-hover"]))) {
 			                $mouse_hover_flag = true;
+							$bg_color = $a_layer["paint"]["fill-color"];
 		                }
+		            }
+					
+					if($a_layer["type"] == "circle") {
+			            if(!empty($a_layer["circle-hover"])) {
+				            if($a_layer["circle-hover"] == "on") {
+			                    $circle_hover_flag = true;
+								$bg_color = $a_layer["paint"]["circle-color"];
+				            }
+			            }
 		            }
 				
 				
@@ -279,12 +291,25 @@ else
 						
 						
 					}
+					if($circle_hover_flag) {
+						
+		                $hide_highlighted = $js_id.'_hideHigh';
+						
+						$js_code .= ' 
+						'.$hide_highlighted.'();
+						
+						$("div#'.$js_id.'_infoBar").slideUp();
+						
+						';
+						
+						
+					}
 					$js_code .= ' } }); ';
 					
-					if($mouse_hover_flag) {
+					if($mouse_hover_flag || $circle_hover_flag) {
 						$js_code .= '
 						
-						$("div#rightInfoBar").html("<div id=\"'.$js_id.'_infoBar\" style=\"background-color: '.$a_layer["paint"]["fill-color"].';  width: 270px;\"></div>");
+						$("div#rightInfoBar").append("<div id=\"'.$js_id.'_infoBar\" style=\"background-color: '.$bg_color.';  width: 270px;\"></div>");
 						
 						$("div#'.$js_id.'_infoBar").slideUp();
 						
@@ -380,11 +405,23 @@ console.warn(" === Load Left Side Layers ==== ")
  foreach($layersArr["record"] as $a_layer) {
 		
 		$mouse_hover_flag = false;
+		$circle_hover_flag = false;
+		$bg_color = "#FFFFFF";
 		
 		if($a_layer["type"] == "fill") {
 		    if((!empty($a_layer["paint"]["fill-opacity"])) && (!empty($a_layer["paint"]["fill-opacity-hover"]))) {
 			    $mouse_hover_flag = true;
+				$bg_color = $a_layer["paint"]["fill-color"];
 		    }
+		}
+		
+		if($a_layer["type"] == "circle") {
+			if(!empty($a_layer["circle-hover"])) {
+				if($a_layer["circle-hover"] == "on") {
+			        $circle_hover_flag = true;
+					$bg_color = $a_layer["paint"]["circle-color"];
+				}
+			}
 		}
 		
 		$MapboxLayer = '';
@@ -440,7 +477,7 @@ console.warn(" === Load Left Side Layers ==== ")
 		$beforePopUp = 'before_'.str_replace('-', '_', $a_layer["id-left"]).'_PopUp';
 		$clickHandle = str_replace('-', '_', $a_layer["ID"]).'_clickHandle';
 		
-		if($mouse_hover_flag) {
+		if($mouse_hover_flag || $circle_hover_flag) {
 		    $MapboxLayer .= '
 			
 			var '.$hoveredIdLeft.' = null;
@@ -468,8 +505,8 @@ console.warn(" === Load Left Side Layers ==== ")
                         { hover: true }
                     );
 			
-		
-			        var PopUpHTML = "<div style=\'background-color: '.$a_layer["paint"]["fill-color"].'; border: 2px solid #f15b28;\'><br> &nbsp; &nbsp; <b>" + e.features[0].properties.Name + "</b> &nbsp; &nbsp; <br><br></div>";
+		            var popup_text = e.features[0].properties.Name || e.features[0].properties.LOT2;
+			        var PopUpHTML = "<div style=\'background-color: '.$bg_color.'; border: 2px solid #f15b28;\'><br> &nbsp; &nbsp; <b>" + popup_text + "</b> &nbsp; &nbsp; <br><br></div>";
 			        //BEFORE MAP POP UP CONTENTS
                     '.$beforePopUp.'.setLngLat(e.lngLat).setHTML(PopUpHTML);
 				
@@ -518,11 +555,23 @@ function addAfterLayers(yr, date) {
  foreach($layersArr["record"] as $a_layer) {
 		
 		$mouse_hover_flag = false;
+		$circle_hover_flag = false;
+		$bg_color = "#FFFFFF";
 		
 		if($a_layer["type"] == "fill") {
 		    if((!empty($a_layer["paint"]["fill-opacity"])) && (!empty($a_layer["paint"]["fill-opacity-hover"]))) {
 			    $mouse_hover_flag = true;
+				$bg_color = $a_layer["paint"]["fill-color"];
 		    }
+		}
+		
+		if($a_layer["type"] == "circle") {
+			if(!empty($a_layer["circle-hover"])) {
+				if($a_layer["circle-hover"] == "on") {
+			        $circle_hover_flag = true;
+					$bg_color = $a_layer["paint"]["circle-color"];
+				}
+			}
 		}
 		
 		$MapboxLayer = '';
@@ -575,7 +624,7 @@ function addAfterLayers(yr, date) {
 		$afterPopUp = 'before_'.str_replace('-', '_', $a_layer["id-right"]).'_PopUp';
 		$clickHandle = str_replace('-', '_', $a_layer["ID"]).'_clickHandle';
 		
-		if($mouse_hover_flag) {
+		if($mouse_hover_flag || $circle_hover_flag) {
 		    $MapboxLayer .= '
 			
 			var '.$hoveredIdRight.' = null;
@@ -603,8 +652,8 @@ function addAfterLayers(yr, date) {
                         { hover: true }
                     );
 			
-		
-			        var PopUpHTML = "<div style=\'background-color: '.$a_layer["paint"]["fill-color"].'; border: 2px solid #f15b28;\'><br> &nbsp; &nbsp; <b>" + e.features[0].properties.Name + "</b> &nbsp; &nbsp; <br><br></div>";
+		            var popup_text = e.features[0].properties.Name || e.features[0].properties.LOT2;
+			        var PopUpHTML = "<div style=\'background-color: '.$bg_color.'; border: 2px solid #f15b28;\'><br> &nbsp; &nbsp; <b>" + popup_text + "</b> &nbsp; &nbsp; <br><br></div>";
 			        //BEFORE MAP POP UP CONTENTS
                     '.$afterPopUp.'.setLngLat(e.lngLat).setHTML(PopUpHTML);
 				
@@ -653,11 +702,20 @@ $clickEvents = '';
  foreach($layersArr["record"] as $a_layer) {
 		
 		$mouse_hover_flag = false;
+		$circle_hover_flag = false;
 		
 		if($a_layer["type"] == "fill") {
 		    if((!empty($a_layer["paint"]["fill-opacity"])) && (!empty($a_layer["paint"]["fill-opacity-hover"]))) {
 			    $mouse_hover_flag = true;
 		    }
+		}
+		
+		if($a_layer["type"] == "circle") {
+			if(!empty($a_layer["circle-hover"])) {
+				if($a_layer["circle-hover"] == "on") {
+			        $circle_hover_flag = true;
+				}
+			}
 		}
 		
 		$js_id = str_replace('-', '_', $a_layer["ID"]);
@@ -723,6 +781,51 @@ $clickEvents = '';
 			function '.$build_sidebar.'(props) {
 								
 				var popup_html = "<br><h3>'.$a_layer["description"].'</h3><hr><table>";
+				
+				for (let prop_key in props) {
+				    popup_html += "<tr><th style=\"text-align: right;\">" + prop_key + "</th><td>" + props[prop_key] + "</td></tr>";
+			    }
+				popup_html += "</table>";
+				
+				
+				$("div#'.$js_id.'_infoBar").html(popup_html);
+				
+				$("div#'.$js_id.'_infoBar").slideDown();
+				
+			}
+			
+';
+		}
+		
+		
+	    if($circle_hover_flag) {
+		    $clickEvents .= '
+			
+			var '.$afterPopUpHigh.' = new mapboxgl.Popup({ closeButton: false, closeOnClick: false }),
+			    '.$beforePopUpHigh.' = new mapboxgl.Popup({ closeButton: false, closeOnClick: false });
+				
+			function '.$clickHandle.'(event) {
+				
+				    var PopUpText = event.features[0].properties.Name || event.features[0].properties.LOT2;
+			        var PopUpHTML = "<div style=\'background-color: '.$a_layer["paint"]["circle-color"].'; border: 2px solid #f15b28; \'><br> &nbsp; &nbsp; <b>" + PopUpText + "</b> &nbsp; &nbsp; <br><br></div>";
+			        //BEFORE MAP POP UP CONTENTS
+                    '.$afterPopUpHigh.'.setLngLat(event.lngLat).setHTML(PopUpHTML).addTo(afterMap);
+					'.$beforePopUpHigh.'.setLngLat(event.lngLat).setHTML(PopUpHTML).addTo(beforeMap);
+					
+					'.$build_sidebar.'(event.features[0].properties);
+				
+			}
+			
+			
+			function '.$hide_highlighted.'() {				
+					if('.$afterPopUpHigh.'.isOpen()) '.$afterPopUpHigh.'.remove();
+					if('.$beforePopUpHigh.'.isOpen()) '.$beforePopUpHigh.'.remove();
+			}
+			
+			
+			function '.$build_sidebar.'(props) {
+								
+				var popup_html = "<br><h3>'.$a_layer["description"].'</h3><hr><table style=\"width: 100%;\">";
 				
 				for (let prop_key in props) {
 				    popup_html += "<tr><th style=\"text-align: right;\">" + prop_key + "</th><td>" + props[prop_key] + "</td></tr>";
