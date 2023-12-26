@@ -153,6 +153,7 @@ function buildGrantLotsPopUpInfo(props) {
 }
 
 function buildDutchGrantPopUpInfo(props) {
+
   var popup_html = "";
   if (typeof dutch_grant_lots_info[props.Lot] == "undefined") {
     popup_html =
@@ -241,10 +242,12 @@ function buildDutchGrantPopUpInfo(props) {
     popup_html += "<br><br>" + builds_imgs;
   }
 
+
   $("#infoLayerDutchGrants").html(popup_html);
 }
 
 function buildGravesendPopUpInfo(props) {
+
   var popup_html = "<h3>Brooklyn Grants</h3><hr>";
 
   if (typeof brooklyn_grants_info[props.node] == "undefined") {
@@ -333,6 +336,7 @@ function buildGravesendPopUpInfo(props) {
     }
   }
 
+
   $("#infoLayerGravesend").html(popup_html);
 }
 
@@ -394,6 +398,7 @@ function buildKarlPopUpInfo(props) {
 }
 
 function buildFarmsPopUpInfo(props) {
+
   var popup_html = "";
   if (typeof farms_grants_info[props.NID_num] == "undefined") {
     popup_html =
@@ -459,6 +464,7 @@ function buildFarmsPopUpInfo(props) {
         "</i><br>";
     }
   }
+
 
   $("#infoLayerFarms").html(popup_html);
 }

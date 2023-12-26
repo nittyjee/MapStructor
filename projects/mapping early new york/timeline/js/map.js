@@ -135,12 +135,14 @@ var hoveredStateIdRight = null,
 var clickedStateId = null;
 
 beforeMap.on("load", function () {
+
   beforeMap
     .on("click", "lot_events-bf43eb-left", handleLayerClick("demoLayerInfo", demoLayerView))
     .on("click", "places-left", handleLayerClick("infoLayerCastello", castelloLayerView, buildCastelloPopupInfo))
     .on("click", "grant-lots-left", handleLayerClick("infoLayerGrantLots", grantLotsView, buildGrantLotsPopupInfo))
     .on("click", "dutch_grants-5ehfqe-left", handleLayerClick("infoLayerDutchGrants", dutchGrantsView, buildDutchGrantPopupInfo))
     .on("click", handleMapClick);
+
 });
 
 function handleLayerClick(popupId, flag, buildPopupInfo) {
