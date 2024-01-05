@@ -728,7 +728,7 @@ beforeMap.on("load", function () {
     .on("click", "original_grants_and_farms-left", function (e) {
       FarmsClickHandle(e);
     })
-    .on("click", "dutch_grants-5ehfqe-left", function (e) {
+    .on("click", "tiny_subset_geacron-6dha1o-left", function (e) {
       DutchGrantsClickHandle(e);
     })
     .on("click", "gravesend_boundaries-c6qrbw-left", function (e) {
@@ -771,7 +771,7 @@ afterMap.on("load", function () {
     .on("click", "original_grants_and_farms-right", function (e) {
       FarmsClickHandle(e);
     })
-    .on("click", "dutch_grants-5ehfqe-right", function (e) {
+    .on("click", "tiny_subset_geacron-6dha1o-right", function (e) {
       DutchGrantsClickHandle(e);
     })
     .on("click", "gravesend_boundaries-c6qrbw-right", function (e) {
@@ -1461,16 +1461,16 @@ function DutchGrantsClickHandle(event) {
       dgrants_layer_view_flag = true;
       afterMap.setFeatureState(
         {
-          source: "dutch_grants-5ehfqe-right-highlighted",
-          sourceLayer: "dutch_grants-5ehfqe",
+          source: "tiny_subset_geacron-6dha1o-right-highlighted",
+          sourceLayer: "tiny_subset_geacron-6dha1o",
           id: dgrants_layer_view_id,
         },
         { hover: true }
       );
       beforeMap.setFeatureState(
         {
-          source: "dutch_grants-5ehfqe-left-highlighted",
-          sourceLayer: "dutch_grants-5ehfqe",
+          source: "tiny_subset_geacron-6dha1o-left-highlighted",
+          sourceLayer: "tiny_subset_geacron-6dha1o",
           id: dgrants_layer_view_id,
         },
         { hover: true }
@@ -1493,32 +1493,32 @@ function DutchGrantsClickHandle(event) {
     //*A#
     afterMap.setFeatureState(
       {
-        source: "dutch_grants-5ehfqe-right-highlighted",
-        sourceLayer: "dutch_grants-5ehfqe",
+        source: "tiny_subset_geacron-6dha1o-right-highlighted",
+        sourceLayer: "tiny_subset_geacron-6dha1o",
         id: dgrants_layer_view_id,
       },
       { hover: false }
     );
     afterMap.setFeatureState(
       {
-        source: "dutch_grants-5ehfqe-right-highlighted",
-        sourceLayer: "dutch_grants-5ehfqe",
+        source: "tiny_subset_geacron-6dha1o-right-highlighted",
+        sourceLayer: "tiny_subset_geacron-6dha1o",
         id: event.features[0].id,
       },
       { hover: true }
     );
     beforeMap.setFeatureState(
       {
-        source: "dutch_grants-5ehfqe-left-highlighted",
-        sourceLayer: "dutch_grants-5ehfqe",
+        source: "tiny_subset_geacron-6dha1o-left-highlighted",
+        sourceLayer: "tiny_subset_geacron-6dha1o",
         id: dgrants_layer_view_id,
       },
       { hover: false }
     );
     beforeMap.setFeatureState(
       {
-        source: "dutch_grants-5ehfqe-left-highlighted",
-        sourceLayer: "dutch_grants-5ehfqe",
+        source: "tiny_subset_geacron-6dha1o-left-highlighted",
+        sourceLayer: "tiny_subset_geacron-6dha1o",
         id: event.features[0].id,
       },
       { hover: true }
@@ -1902,16 +1902,16 @@ function closeDutchGrantsInfo() {
   dgrants_layer_view_flag = false;
   afterMap.setFeatureState(
     {
-      source: "dutch_grants-5ehfqe-right-highlighted",
-      sourceLayer: "dutch_grants-5ehfqe",
+      source: "tiny_subset_geacron-6dha1o-right-highlighted",
+      sourceLayer: "tiny_subset_geacron-6dha1o",
       id: dgrants_layer_view_id,
     },
     { hover: false }
   );
   beforeMap.setFeatureState(
     {
-      source: "dutch_grants-5ehfqe-left-highlighted",
-      sourceLayer: "dutch_grants-5ehfqe",
+      source: "tiny_subset_geacron-6dha1o-left-highlighted",
+      sourceLayer: "tiny_subset_geacron-6dha1o",
       id: dgrants_layer_view_id,
     },
     { hover: false }
@@ -2157,11 +2157,11 @@ function changeDate(unixDate) {
   //LAYERS FOR FILTERING
 
   //NAHC
-  beforeMap.setFilter("dutch_grants-5ehfqe-left", dateFilter);
-  afterMap.setFilter("dutch_grants-5ehfqe-right", dateFilter);
+  beforeMap.setFilter("tiny_subset_geacron-6dha1o-left", dateFilter);
+  afterMap.setFilter("tiny_subset_geacron-6dha1o-right", dateFilter);
 
-  beforeMap.setFilter("dutch_grants-5ehfqe-left-highlighted", dateFilter);
-  afterMap.setFilter("dutch_grants-5ehfqe-right-highlighted", dateFilter);
+  beforeMap.setFilter("tiny_subset_geacron-6dha1o-left-highlighted", dateFilter);
+  afterMap.setFilter("tiny_subset_geacron-6dha1o-right-highlighted", dateFilter);
 
   beforeMap.setFilter("original_grants_and_farms-left", dateFilter);
   afterMap.setFilter("original_grants_and_farms-right", dateFilter);

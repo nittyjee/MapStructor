@@ -13,34 +13,34 @@ function addBeforeLayers(_, date) {
     },
     {
       type: "layer",
-      id: "dutch_grants-5ehfqe-left",
+      id: "tiny_subset_geacron-6dha1o-left",
     },
     {
       type: "source",
-      id: "dutch_grants-5ehfqe",
+      id: "tiny_subset_geacron-6dha1o",
     },
   ]);
 
   addMapLayer(
     beforeMap,
-    getBeforeLayer("dutch_grants-5ehfqe-left-highlighted"),
+    getBeforeLayer("tiny_subset_geacron-6dha1o-left-highlighted"),
     date
   );
-  addMapLayer(beforeMap, getBeforeLayer("dutch_grants-5ehfqe-left"), date);
+  addMapLayer(beforeMap, getBeforeLayer("tiny_subset_geacron-6dha1o-left"), date);
   addMapLayer(beforeMap, getBeforeLayer("lot_events-bf43eb-left"), date)
 
-    beforeMap.on("mouseenter", "dutch_grants-5ehfqe-left", function (e) {
+    beforeMap.on("mouseenter", "tiny_subset_geacron-6dha1o-left", function (e) {
       beforeMap.getCanvas().style.cursor = "pointer";
       beforeMapDutchGrantPopUp.setLngLat(e.lngLat).addTo(beforeMap);
     });
 
-    beforeMap.on("mousemove", "dutch_grants-5ehfqe-left", function (e) {
+    beforeMap.on("mousemove", "tiny_subset_geacron-6dha1o-left", function (e) {
       if (e.features.length > 0) {
         if (hoveredDutchGrantIdLeft) {
           beforeMap.setFeatureState(
             {
-              source: "dutch_grants-5ehfqe-left",
-              sourceLayer: "dutch_grants-5ehfqe",
+              source: "tiny_subset_geacron-6dha1o-left",
+              sourceLayer: "tiny_subset_geacron-6dha1o",
               id: hoveredDutchGrantIdLeft,
             },
             { hover: false }
@@ -49,8 +49,8 @@ function addBeforeLayers(_, date) {
         hoveredDutchGrantIdLeft = e.features[0].id;
         beforeMap.setFeatureState(
           {
-            source: "dutch_grants-5ehfqe-left",
-            sourceLayer: "dutch_grants-5ehfqe",
+            source: "tiny_subset_geacron-6dha1o-left",
+            sourceLayer: "tiny_subset_geacron-6dha1o",
             id: hoveredDutchGrantIdLeft,
           },
           { hover: true }
@@ -91,13 +91,13 @@ function addBeforeLayers(_, date) {
       }
     });
 
-    beforeMap.on("mouseleave", "dutch_grants-5ehfqe-left", function () {
+    beforeMap.on("mouseleave", "tiny_subset_geacron-6dha1o-left", function () {
       beforeMap.getCanvas().style.cursor = "";
       if (hoveredDutchGrantIdLeft) {
         beforeMap.setFeatureState(
           {
-            source: "dutch_grants-5ehfqe-left",
-            sourceLayer: "dutch_grants-5ehfqe",
+            source: "tiny_subset_geacron-6dha1o-left",
+            sourceLayer: "tiny_subset_geacron-6dha1o",
             id: hoveredDutchGrantIdLeft,
           },
           { hover: false }

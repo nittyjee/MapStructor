@@ -1,19 +1,19 @@
 const layers = [
   {
     //ID: CHANGE THIS, 1 OF 3
-    id: "dutch_grants-5ehfqe-right-highlighted",
+    id: "tiny_subset_geacron-6dha1o-right-highlighted",
     type: "fill",
     source: {
       type: "vector",
       //URL: CHANGE THIS, 2 OF 3
-      url: "mapbox://mapny.7q2vs9ar",
+      url: "mapbox://mapny.5ipka7ue",
     },
     layout: {
       visibility: document.getElementById("grants_layer").checked
         ? "visible"
         : "none",
     },
-    "source-layer": "dutch_grants-5ehfqe",
+    "source-layer": "tiny_subset_geacron-6dha1o",
     paint: {
       "fill-color": "#e3ed58",
       "fill-opacity": [
@@ -28,19 +28,19 @@ const layers = [
   },
   {
     //ID: CHANGE THIS, 1 OF 3
-    id: "dutch_grants-5ehfqe-right",
+    id: "tiny_subset_geacron-6dha1o-right",
     type: "fill",
     source: {
       type: "vector",
       //URL: CHANGE THIS, 2 OF 3
-      url: "mapbox://mapny.7q2vs9ar",
+      url: "mapbox://mapny.5ipka7ue",
     },
     layout: {
       visibility: document.getElementById("grants_layer").checked
         ? "visible"
         : "none",
     },
-    "source-layer": "dutch_grants-5ehfqe",
+    "source-layer": "tiny_subset_geacron-6dha1o",
     paint: {
       "fill-color": "#e3ed58",
       "fill-opacity": [
@@ -247,19 +247,19 @@ const layers = [
 const beforeLayers = [
   {
     //ID: CHANGE THIS, 1 OF 3
-    id: "dutch_grants-5ehfqe-left-highlighted",
+    id: "tiny_subset_geacron-6dha1o-left-highlighted",
     type: "fill",
     source: {
       type: "vector",
       //URL: CHANGE THIS, 2 OF 3
-      url: "mapbox://mapny.7q2vs9ar",
+      url: "mapbox://mapny.5ipka7ue",
     },
     layout: {
       visibility: document.getElementById("grants_layer").checked
         ? "visible"
         : "none",
     },
-    "source-layer": "dutch_grants-5ehfqe",
+    "source-layer": "tiny_subset_geacron-6dha1o",
     paint: {
       "fill-color": "#e3ed58",
       "fill-opacity": [
@@ -273,19 +273,19 @@ const beforeLayers = [
   },
   {
     //ID: CHANGE THIS, 1 OF 3
-    id: "dutch_grants-5ehfqe-left",
+    id: "tiny_subset_geacron-6dha1o-left",
     type: "fill",
     source: {
       type: "vector",
       //URL: CHANGE THIS, 2 OF 3
-      url: "mapbox://mapny.7q2vs9ar",
+      url: "mapbox://mapny.5ipka7ue",
     },
     layout: {
       visibility: document.getElementById("grants_layer").checked
         ? "visible"
         : "none",
     },
-    "source-layer": "dutch_grants-5ehfqe",
+    "source-layer": "tiny_subset_geacron-6dha1o",
     paint: {
       "fill-color": "#e3ed58",
       "fill-opacity": [

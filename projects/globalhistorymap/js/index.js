@@ -59,9 +59,9 @@ var layer_view_flag = true;
 var timeline_pointer_flag = true;
 var windoWidth = 0;
 
-var sliderStart = moment("01/01/1626").unix();
+var sliderStart = moment("01/01/1920").unix();
 var sliderStartDrag = sliderStart;
-var sliderEnd = moment("01/01/1700").unix();
+var sliderEnd = moment("01/01/2010").unix();
 var sliderEndDrag = sliderEnd;
 var sliderMiddle = (sliderStart + sliderEnd) / 2;
 var tooltiPos = -100;
@@ -759,22 +759,22 @@ $(document).ready(function () {
         getLotsInfo();
       }
       beforeMap.setLayoutProperty(
-        "dutch_grants-5ehfqe-left",
+        "tiny_subset_geacron-6dha1o-left",
         "visibility",
         "visible"
       );
       afterMap.setLayoutProperty(
-        "dutch_grants-5ehfqe-right",
+        "tiny_subset_geacron-6dha1o-right",
         "visibility",
         "visible"
       );
       beforeMap.setLayoutProperty(
-        "dutch_grants-5ehfqe-left-highlighted",
+        "tiny_subset_geacron-6dha1o-left-highlighted",
         "visibility",
         "visible"
       );
       afterMap.setLayoutProperty(
-        "dutch_grants-5ehfqe-right-highlighted",
+        "tiny_subset_geacron-6dha1o-right-highlighted",
         "visibility",
         "visible"
       );
@@ -791,22 +791,22 @@ $(document).ready(function () {
       );
     } else {
       beforeMap.setLayoutProperty(
-        "dutch_grants-5ehfqe-left",
+        "tiny_subset_geacron-6dha1o-left",
         "visibility",
         "none"
       );
       afterMap.setLayoutProperty(
-        "dutch_grants-5ehfqe-right",
+        "tiny_subset_geacron-6dha1o-right",
         "visibility",
         "none"
       );
       beforeMap.setLayoutProperty(
-        "dutch_grants-5ehfqe-left-highlighted",
+        "tiny_subset_geacron-6dha1o-left-highlighted",
         "visibility",
         "visible"
       );
       afterMap.setLayoutProperty(
-        "dutch_grants-5ehfqe-right-highlighted",
+        "tiny_subset_geacron-6dha1o-right-highlighted",
         "visibility",
         "none"
       );
@@ -842,43 +842,43 @@ $(document).ready(function () {
         getLotsInfo();
       }
       beforeMap.setLayoutProperty(
-        "dutch_grants-5ehfqe-left",
+        "tiny_subset_geacron-6dha1o-left",
         "visibility",
         "visible"
       );
       afterMap.setLayoutProperty(
-        "dutch_grants-5ehfqe-right",
+        "tiny_subset_geacron-6dha1o-right",
         "visibility",
         "visible"
       );
       beforeMap.setLayoutProperty(
-        "dutch_grants-5ehfqe-left-highlighted",
+        "tiny_subset_geacron-6dha1o-left-highlighted",
         "visibility",
         "visible"
       );
       afterMap.setLayoutProperty(
-        "dutch_grants-5ehfqe-right-highlighted",
+        "tiny_subset_geacron-6dha1o-right-highlighted",
         "visibility",
         "visible"
       );
     } else {
       beforeMap.setLayoutProperty(
-        "dutch_grants-5ehfqe-left",
+        "tiny_subset_geacron-6dha1o-left",
         "visibility",
         "none"
       );
       afterMap.setLayoutProperty(
-        "dutch_grants-5ehfqe-right",
+        "tiny_subset_geacron-6dha1o-right",
         "visibility",
         "none"
       );
       beforeMap.setLayoutProperty(
-        "dutch_grants-5ehfqe-left-highlighted",
+        "tiny_subset_geacron-6dha1o-left-highlighted",
         "visibility",
         "none"
       );
       afterMap.setLayoutProperty(
-        "dutch_grants-5ehfqe-right-highlighted",
+        "tiny_subset_geacron-6dha1o-right-highlighted",
         "visibility",
         "none"
       );
