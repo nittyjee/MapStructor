@@ -1,19 +1,19 @@
 const layers = [
   {
     //ID: CHANGE THIS, 1 OF 3
-    id: "tiny_subset_geacron-6dha1o-right-highlighted",
+    id: "section_for_testing_3857-b3mg0p-right-highlighted",
     type: "fill",
     source: {
       type: "vector",
       //URL: CHANGE THIS, 2 OF 3
-      url: "mapbox://mapny.5ipka7ue",
+      url: "mapbox://mapny.39176jbw",
     },
     layout: {
       visibility: document.getElementById("grants_layer").checked
         ? "visible"
         : "none",
     },
-    "source-layer": "tiny_subset_geacron-6dha1o",
+    "source-layer": "section_for_testing_3857-b3mg0p",
     paint: {
       "fill-color": "#e3ed58",
       "fill-opacity": [
@@ -28,19 +28,19 @@ const layers = [
   },
   {
     //ID: CHANGE THIS, 1 OF 3
-    id: "tiny_subset_geacron-6dha1o-right",
+    id: "section_for_testing_3857-b3mg0p-right",
     type: "fill",
     source: {
       type: "vector",
       //URL: CHANGE THIS, 2 OF 3
-      url: "mapbox://mapny.5ipka7ue",
+      url: "mapbox://mapny.39176jbw",
     },
     layout: {
       visibility: document.getElementById("grants_layer").checked
         ? "visible"
         : "none",
     },
-    "source-layer": "tiny_subset_geacron-6dha1o",
+    "source-layer": "section_for_testing_3857-b3mg0p",
     paint: {
       "fill-color": "#e3ed58",
       "fill-opacity": [
@@ -247,19 +247,19 @@ const layers = [
 const beforeLayers = [
   {
     //ID: CHANGE THIS, 1 OF 3
-    id: "tiny_subset_geacron-6dha1o-left-highlighted",
+    id: "section_for_testing_3857-b3mg0p-left-highlighted",
     type: "fill",
     source: {
       type: "vector",
       //URL: CHANGE THIS, 2 OF 3
-      url: "mapbox://mapny.5ipka7ue",
+      url: "mapbox://mapny.39176jbw",
     },
     layout: {
       visibility: document.getElementById("grants_layer").checked
         ? "visible"
         : "none",
     },
-    "source-layer": "tiny_subset_geacron-6dha1o",
+    "source-layer": "section_for_testing_3857-b3mg0p",
     paint: {
       "fill-color": "#e3ed58",
       "fill-opacity": [
@@ -273,19 +273,19 @@ const beforeLayers = [
   },
   {
     //ID: CHANGE THIS, 1 OF 3
-    id: "tiny_subset_geacron-6dha1o-left",
+    id: "section_for_testing_3857-b3mg0p-left",
     type: "fill",
     source: {
       type: "vector",
       //URL: CHANGE THIS, 2 OF 3
-      url: "mapbox://mapny.5ipka7ue",
+      url: "mapbox://mapny.39176jbw",
     },
     layout: {
       visibility: document.getElementById("grants_layer").checked
         ? "visible"
         : "none",
     },
-    "source-layer": "tiny_subset_geacron-6dha1o",
+    "source-layer": "section_for_testing_3857-b3mg0p",
     paint: {
       "fill-color": "#e3ed58",
       "fill-opacity": [

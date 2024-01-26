@@ -2,25 +2,25 @@ function addAfterLayers(_, date) {
   removeTaxPoints(afterMap, [
     {type: "layer", id: "lot_events-bf43eb-right"},
     {type: "source", id: "lot_events-bf43eb"},
-    {type: "layer", id: "tiny_subset_geacron-6dha1o-right"},
-    {type: "source", id: "tiny_subset_geacron-6dha1o"}
+    {type: "layer", id: "section_for_testing_3857-b3mg0p-right"},
+    {type: "source", id: "section_for_testing_3857-b3mg0p"}
   ]) 
 
-  addMapLayer(afterMap, getLayer("tiny_subset_geacron-6dha1o-right-highlighted"), date);
-  addMapLayer(afterMap, getLayer("tiny_subset_geacron-6dha1o-right"), date);
+  addMapLayer(afterMap, getLayer("section_for_testing_3857-b3mg0p-right-highlighted"), date);
+  addMapLayer(afterMap, getLayer("section_for_testing_3857-b3mg0p-right"), date);
 
-    afterMap.on("mouseenter", "tiny_subset_geacron-6dha1o-right", function (e) {
+    afterMap.on("mouseenter", "section_for_testing_3857-b3mg0p-right", function (e) {
       afterMap.getCanvas().style.cursor = "pointer";
       afterMapDutchGrantPopUp.setLngLat(e.lngLat).addTo(afterMap);
     });
 
-    afterMap.on("mousemove", "tiny_subset_geacron-6dha1o-right", function (e) {
+    afterMap.on("mousemove", "section_for_testing_3857-b3mg0p-right", function (e) {
       if (e.features.length > 0) {
         if (hoveredDutchGrantIdRight) {
           afterMap.setFeatureState(
             {
-              source: "tiny_subset_geacron-6dha1o-right",
-              sourceLayer: "tiny_subset_geacron-6dha1o",
+              source: "section_for_testing_3857-b3mg0p-right",
+              sourceLayer: "section_for_testing_3857-b3mg0p",
               id: hoveredDutchGrantIdRight,
             },
             { hover: false }
@@ -29,8 +29,8 @@ function addAfterLayers(_, date) {
         hoveredDutchGrantIdRight = e.features[0].id;
         afterMap.setFeatureState(
           {
-            source: "tiny_subset_geacron-6dha1o-right",
-            sourceLayer: "tiny_subset_geacron-6dha1o",
+            source: "section_for_testing_3857-b3mg0p-right",
+            sourceLayer: "section_for_testing_3857-b3mg0p",
             id: hoveredDutchGrantIdRight,
           },
           { hover: true }
@@ -67,13 +67,13 @@ function addAfterLayers(_, date) {
       }
     });
 
-    afterMap.on("mouseleave", "tiny_subset_geacron-6dha1o-right", function () {
+    afterMap.on("mouseleave", "section_for_testing_3857-b3mg0p-right", function () {
       afterMap.getCanvas().style.cursor = "";
       if (hoveredDutchGrantIdRight) {
         afterMap.setFeatureState(
           {
-            source: "tiny_subset_geacron-6dha1o-right",
-            sourceLayer: "tiny_subset_geacron-6dha1o",
+            source: "section_for_testing_3857-b3mg0p-right",
+            sourceLayer: "section_for_testing_3857-b3mg0p",
             id: hoveredDutchGrantIdRight,
           },
           { hover: false }

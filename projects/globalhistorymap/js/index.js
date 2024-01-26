@@ -759,22 +759,22 @@ $(document).ready(function () {
         getLotsInfo();
       }
       beforeMap.setLayoutProperty(
-        "tiny_subset_geacron-6dha1o-left",
+        "section_for_testing_3857-b3mg0p-left",
         "visibility",
         "visible"
       );
       afterMap.setLayoutProperty(
-        "tiny_subset_geacron-6dha1o-right",
+        "section_for_testing_3857-b3mg0p-right",
         "visibility",
         "visible"
       );
       beforeMap.setLayoutProperty(
-        "tiny_subset_geacron-6dha1o-left-highlighted",
+        "section_for_testing_3857-b3mg0p-left-highlighted",
         "visibility",
         "visible"
       );
       afterMap.setLayoutProperty(
-        "tiny_subset_geacron-6dha1o-right-highlighted",
+        "section_for_testing_3857-b3mg0p-right-highlighted",
         "visibility",
         "visible"
       );
@@ -791,22 +791,22 @@ $(document).ready(function () {
       );
     } else {
       beforeMap.setLayoutProperty(
-        "tiny_subset_geacron-6dha1o-left",
+        "section_for_testing_3857-b3mg0p-left",
         "visibility",
         "none"
       );
       afterMap.setLayoutProperty(
-        "tiny_subset_geacron-6dha1o-right",
+        "section_for_testing_3857-b3mg0p-right",
         "visibility",
         "none"
       );
       beforeMap.setLayoutProperty(
-        "tiny_subset_geacron-6dha1o-left-highlighted",
+        "section_for_testing_3857-b3mg0p-left-highlighted",
         "visibility",
         "visible"
       );
       afterMap.setLayoutProperty(
-        "tiny_subset_geacron-6dha1o-right-highlighted",
+        "section_for_testing_3857-b3mg0p-right-highlighted",
         "visibility",
         "none"
       );
@@ -842,43 +842,43 @@ $(document).ready(function () {
         getLotsInfo();
       }
       beforeMap.setLayoutProperty(
-        "tiny_subset_geacron-6dha1o-left",
+        "section_for_testing_3857-b3mg0p-left",
         "visibility",
         "visible"
       );
       afterMap.setLayoutProperty(
-        "tiny_subset_geacron-6dha1o-right",
+        "section_for_testing_3857-b3mg0p-right",
         "visibility",
         "visible"
       );
       beforeMap.setLayoutProperty(
-        "tiny_subset_geacron-6dha1o-left-highlighted",
+        "section_for_testing_3857-b3mg0p-left-highlighted",
         "visibility",
         "visible"
       );
       afterMap.setLayoutProperty(
-        "tiny_subset_geacron-6dha1o-right-highlighted",
+        "section_for_testing_3857-b3mg0p-right-highlighted",
         "visibility",
         "visible"
       );
     } else {
       beforeMap.setLayoutProperty(
-        "tiny_subset_geacron-6dha1o-left",
+        "section_for_testing_3857-b3mg0p-left",
         "visibility",
         "none"
       );
       afterMap.setLayoutProperty(
-        "tiny_subset_geacron-6dha1o-right",
+        "section_for_testing_3857-b3mg0p-right",
         "visibility",
         "none"
       );
       beforeMap.setLayoutProperty(
-        "tiny_subset_geacron-6dha1o-left-highlighted",
+        "section_for_testing_3857-b3mg0p-left-highlighted",
         "visibility",
         "none"
       );
       afterMap.setLayoutProperty(
-        "tiny_subset_geacron-6dha1o-right-highlighted",
+        "section_for_testing_3857-b3mg0p-right-highlighted",
         "visibility",
         "none"
       );
