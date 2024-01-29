@@ -759,22 +759,22 @@ $(document).ready(function () {
         getLotsInfo();
       }
       beforeMap.setLayoutProperty(
-        "section_for_testing_3857-b3mg0p-left",
+        "output-left",
         "visibility",
         "visible"
       );
       afterMap.setLayoutProperty(
-        "section_for_testing_3857-b3mg0p-right",
+        "output-right",
         "visibility",
         "visible"
       );
       beforeMap.setLayoutProperty(
-        "section_for_testing_3857-b3mg0p-left-highlighted",
+        "output-left-highlighted",
         "visibility",
         "visible"
       );
       afterMap.setLayoutProperty(
-        "section_for_testing_3857-b3mg0p-right-highlighted",
+        "output-right-highlighted",
         "visibility",
         "visible"
       );
@@ -791,22 +791,22 @@ $(document).ready(function () {
       );
     } else {
       beforeMap.setLayoutProperty(
-        "section_for_testing_3857-b3mg0p-left",
+        "output-left",
         "visibility",
         "none"
       );
       afterMap.setLayoutProperty(
-        "section_for_testing_3857-b3mg0p-right",
+        "output-right",
         "visibility",
         "none"
       );
       beforeMap.setLayoutProperty(
-        "section_for_testing_3857-b3mg0p-left-highlighted",
+        "output-left-highlighted",
         "visibility",
         "visible"
       );
       afterMap.setLayoutProperty(
-        "section_for_testing_3857-b3mg0p-right-highlighted",
+        "output-right-highlighted",
         "visibility",
         "none"
       );
@@ -842,43 +842,43 @@ $(document).ready(function () {
         getLotsInfo();
       }
       beforeMap.setLayoutProperty(
-        "section_for_testing_3857-b3mg0p-left",
+        "output-left",
         "visibility",
         "visible"
       );
       afterMap.setLayoutProperty(
-        "section_for_testing_3857-b3mg0p-right",
+        "output-right",
         "visibility",
         "visible"
       );
       beforeMap.setLayoutProperty(
-        "section_for_testing_3857-b3mg0p-left-highlighted",
+        "output-left-highlighted",
         "visibility",
         "visible"
       );
       afterMap.setLayoutProperty(
-        "section_for_testing_3857-b3mg0p-right-highlighted",
+        "output-right-highlighted",
         "visibility",
         "visible"
       );
     } else {
       beforeMap.setLayoutProperty(
-        "section_for_testing_3857-b3mg0p-left",
+        "output-left",
         "visibility",
         "none"
       );
       afterMap.setLayoutProperty(
-        "section_for_testing_3857-b3mg0p-right",
+        "output-right",
         "visibility",
         "none"
       );
       beforeMap.setLayoutProperty(
-        "section_for_testing_3857-b3mg0p-left-highlighted",
+        "output-left-highlighted",
         "visibility",
         "none"
       );
       afterMap.setLayoutProperty(
-        "section_for_testing_3857-b3mg0p-right-highlighted",
+        "output-right-highlighted",
         "visibility",
         "none"
       );

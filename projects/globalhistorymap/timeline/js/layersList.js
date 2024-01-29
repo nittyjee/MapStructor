@@ -1,19 +1,19 @@
 const layers = [
   {
     //ID: CHANGE THIS, 1 OF 3
-    id: "section_for_testing_3857-b3mg0p-right-highlighted",
+    id: "output-right-highlighted",
     type: "fill",
     source: {
       type: "vector",
       //URL: CHANGE THIS, 2 OF 3
-      url: "mapbox://mapny.39176jbw",
+      url: "mapbox://mapny.18d146m2",
     },
     layout: {
       visibility: document.getElementById("grants_layer").checked
         ? "visible"
         : "none",
     },
-    "source-layer": "section_for_testing_3857-b3mg0p",
+    "source-layer": "output",
     paint: {
       "fill-color": "#e3ed58",
       "fill-opacity": [
@@ -28,19 +28,19 @@ const layers = [
   },
   {
     //ID: CHANGE THIS, 1 OF 3
-    id: "section_for_testing_3857-b3mg0p-right",
+    id: "output-right",
     type: "fill",
     source: {
       type: "vector",
       //URL: CHANGE THIS, 2 OF 3
-      url: "mapbox://mapny.39176jbw",
+      url: "mapbox://mapny.18d146m2",
     },
     layout: {
       visibility: document.getElementById("grants_layer").checked
         ? "visible"
         : "none",
     },
-    "source-layer": "section_for_testing_3857-b3mg0p",
+    "source-layer": "output",
     paint: {
       "fill-color": "#e3ed58",
       "fill-opacity": [
@@ -58,14 +58,14 @@ const layers = [
     type: "line",
     source: {
       type: "vector",
-      url: "mapbox://mapny.7dw0tqar",
+      url: "mapbox://mapny.35k3ndr0",
     },
     layout: {
       visibility: document.getElementById("grants_layer_lines").checked
         ? "visible"
         : "none",
     },
-    "source-layer": "dutch_grants_lines-0y4gkx",
+    "source-layer": "lines_19202010_geacron",
     paint: {
       "line-color": "#FF0000",
       "line-width": 3,
@@ -247,19 +247,19 @@ const layers = [
 const beforeLayers = [
   {
     //ID: CHANGE THIS, 1 OF 3
-    id: "section_for_testing_3857-b3mg0p-left-highlighted",
+    id: "output-left-highlighted",
     type: "fill",
     source: {
       type: "vector",
       //URL: CHANGE THIS, 2 OF 3
-      url: "mapbox://mapny.39176jbw",
+      url: "mapbox://mapny.18d146m2",
     },
     layout: {
       visibility: document.getElementById("grants_layer").checked
         ? "visible"
         : "none",
     },
-    "source-layer": "section_for_testing_3857-b3mg0p",
+    "source-layer": "output",
     paint: {
       "fill-color": "#e3ed58",
       "fill-opacity": [
@@ -273,19 +273,19 @@ const beforeLayers = [
   },
   {
     //ID: CHANGE THIS, 1 OF 3
-    id: "section_for_testing_3857-b3mg0p-left",
+    id: "output-left",
     type: "fill",
     source: {
       type: "vector",
       //URL: CHANGE THIS, 2 OF 3
-      url: "mapbox://mapny.39176jbw",
+      url: "mapbox://mapny.18d146m2",
     },
     layout: {
       visibility: document.getElementById("grants_layer").checked
         ? "visible"
         : "none",
     },
-    "source-layer": "section_for_testing_3857-b3mg0p",
+    "source-layer": "output",
     paint: {
       "fill-color": "#e3ed58",
       "fill-opacity": [
@@ -370,14 +370,14 @@ const beforeLayers = [
     type: "line",
     source: {
       type: "vector",
-      url: "mapbox://mapny.7dw0tqar",
+      url: "mapbox://mapny.35k3ndr0",
     },
     layout: {
       visibility: document.getElementById("grants_layer_lines").checked
         ? "visible"
         : "none",
     },
-    "source-layer": "dutch_grants_lines-0y4gkx",
+    "source-layer": "lines_19202010_geacron",
     paint: {
       "line-color": "#FF0000",
       "line-width": 3,

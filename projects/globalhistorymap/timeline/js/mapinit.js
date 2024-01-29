@@ -728,7 +728,7 @@ beforeMap.on("load", function () {
     .on("click", "original_grants_and_farms-left", function (e) {
       FarmsClickHandle(e);
     })
-    .on("click", "section_for_testing_3857-b3mg0p-left", function (e) {
+    .on("click", "output-left", function (e) {
       DutchGrantsClickHandle(e);
     })
     .on("click", "gravesend_boundaries-c6qrbw-left", function (e) {
@@ -771,7 +771,7 @@ afterMap.on("load", function () {
     .on("click", "original_grants_and_farms-right", function (e) {
       FarmsClickHandle(e);
     })
-    .on("click", "section_for_testing_3857-b3mg0p-right", function (e) {
+    .on("click", "output-right", function (e) {
       DutchGrantsClickHandle(e);
     })
     .on("click", "gravesend_boundaries-c6qrbw-right", function (e) {
@@ -1461,16 +1461,16 @@ function DutchGrantsClickHandle(event) {
       dgrants_layer_view_flag = true;
       afterMap.setFeatureState(
         {
-          source: "section_for_testing_3857-b3mg0p-right-highlighted",
-          sourceLayer: "section_for_testing_3857-b3mg0p",
+          source: "output-right-highlighted",
+          sourceLayer: "output",
           id: dgrants_layer_view_id,
         },
         { hover: true }
       );
       beforeMap.setFeatureState(
         {
-          source: "section_for_testing_3857-b3mg0p-left-highlighted",
-          sourceLayer: "section_for_testing_3857-b3mg0p",
+          source: "output-left-highlighted",
+          sourceLayer: "output",
           id: dgrants_layer_view_id,
         },
         { hover: true }
@@ -1493,32 +1493,32 @@ function DutchGrantsClickHandle(event) {
     //*A#
     afterMap.setFeatureState(
       {
-        source: "section_for_testing_3857-b3mg0p-right-highlighted",
-        sourceLayer: "section_for_testing_3857-b3mg0p",
+        source: "output-right-highlighted",
+        sourceLayer: "output",
         id: dgrants_layer_view_id,
       },
       { hover: false }
     );
     afterMap.setFeatureState(
       {
-        source: "section_for_testing_3857-b3mg0p-right-highlighted",
-        sourceLayer: "section_for_testing_3857-b3mg0p",
+        source: "output-right-highlighted",
+        sourceLayer: "output",
         id: event.features[0].id,
       },
       { hover: true }
     );
     beforeMap.setFeatureState(
       {
-        source: "section_for_testing_3857-b3mg0p-left-highlighted",
-        sourceLayer: "section_for_testing_3857-b3mg0p",
+        source: "output-left-highlighted",
+        sourceLayer: "output",
         id: dgrants_layer_view_id,
       },
       { hover: false }
     );
     beforeMap.setFeatureState(
       {
-        source: "section_for_testing_3857-b3mg0p-left-highlighted",
-        sourceLayer: "section_for_testing_3857-b3mg0p",
+        source: "output-left-highlighted",
+        sourceLayer: "output",
         id: event.features[0].id,
       },
       { hover: true }
@@ -1902,16 +1902,16 @@ function closeDutchGrantsInfo() {
   dgrants_layer_view_flag = false;
   afterMap.setFeatureState(
     {
-      source: "section_for_testing_3857-b3mg0p-right-highlighted",
-      sourceLayer: "section_for_testing_3857-b3mg0p",
+      source: "output-right-highlighted",
+      sourceLayer: "output",
       id: dgrants_layer_view_id,
     },
     { hover: false }
   );
   beforeMap.setFeatureState(
     {
-      source: "section_for_testing_3857-b3mg0p-left-highlighted",
-      sourceLayer: "section_for_testing_3857-b3mg0p",
+      source: "output-left-highlighted",
+      sourceLayer: "output",
       id: dgrants_layer_view_id,
     },
     { hover: false }
@@ -2157,11 +2157,11 @@ function changeDate(unixDate) {
   //LAYERS FOR FILTERING
 
   //NAHC
-  beforeMap.setFilter("section_for_testing_3857-b3mg0p-left", dateFilter);
-  afterMap.setFilter("section_for_testing_3857-b3mg0p-right", dateFilter);
+  beforeMap.setFilter("output-left", dateFilter);
+  afterMap.setFilter("output-right", dateFilter);
 
-  beforeMap.setFilter("section_for_testing_3857-b3mg0p-left-highlighted", dateFilter);
-  afterMap.setFilter("section_for_testing_3857-b3mg0p-right-highlighted", dateFilter);
+  beforeMap.setFilter("output-left-highlighted", dateFilter);
+  afterMap.setFilter("output-right-highlighted", dateFilter);
 
   beforeMap.setFilter("original_grants_and_farms-left", dateFilter);
   afterMap.setFilter("original_grants_and_farms-right", dateFilter);
