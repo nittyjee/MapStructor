@@ -28,7 +28,6 @@ const manhattanLayerSections = [
     iconType: "square",
     isSolid: false,
   },
-  /*
   {
     id: "circle_point",
     name: "circle_point",
@@ -48,7 +47,6 @@ const manhattanLayerSections = [
     infoId: "castello-info-layer",
     type: "castello-points",
   },
-  */
 ];
 
 const longIslandLayerSections = [
@@ -90,5 +88,5 @@ const longIslandLayerSections = [
     label: "Borders",
     iconType: "square",
     topLayerClass: "native_groups_layer",
-  },
+  }
 ];
