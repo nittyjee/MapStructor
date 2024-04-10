@@ -49,9 +49,9 @@ var layer_view_flag = true;
 var timeline_pointer_flag = true;
 var windoWidth = 0;
 
-var sliderStart = moment("01/01/1626").unix();
+var sliderStart = moment("01/01/1900").unix();
 var sliderStartDrag = sliderStart;
-var sliderEnd = moment("01/01/1700").unix();
+var sliderEnd = moment("01/01/2000").unix();
 var sliderEndDrag = sliderEnd;
 var sliderMiddle = (sliderStart + sliderEnd) / 2;
 var tooltiPos = -100;

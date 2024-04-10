@@ -57,14 +57,14 @@ const layers = [
     type: "line",
     source: {
       type: "vector",
-      url: "mapbox://mapny.7dw0tqar",
+      url: "mapbox://mapny.dfmrnubu",
     },
     layout: {
       visibility: document.getElementById("grants_layer_lines").checked
         ? "visible"
         : "none",
     },
-    "source-layer": "dutch_grants_lines-0y4gkx",
+    "source-layer": "recombined-akk06o",
     paint: {
       "line-color": "#FF0000",
       "line-width": 3,

@@ -97,7 +97,7 @@ function addAllLayers(yr, date) {
       { type: "layer", id: `dutch_grants-5ehfqe` },
       { type: "source", id: "dutch_grants-5ehfqe" },
       { type: "layer", id: `grant-lots-lines` },
-      { type: "source", id: "dutch_grants_lines-0y4gkx" },
+      { type: "source", id: "recombined-akk06o" },
     ]);
     addMapLayers(
       map,
