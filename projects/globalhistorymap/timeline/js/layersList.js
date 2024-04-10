@@ -58,14 +58,14 @@ const layers = [
     type: "line",
     source: {
       type: "vector",
-      url: "mapbox://mapny.35k3ndr0",
+      url: "mapbox://mapny.dfmrnubu",
     },
     layout: {
       visibility: document.getElementById("grants_layer_lines").checked
         ? "visible"
         : "none",
     },
-    "source-layer": "lines_19202010_geacron",
+    "source-layer": "recombined-akk06o",
     paint: {
       "line-color": "#FF0000",
       "line-width": 3,
@@ -370,14 +370,14 @@ const beforeLayers = [
     type: "line",
     source: {
       type: "vector",
-      url: "mapbox://mapny.35k3ndr0",
+      url: "mapbox://mapny.dfmrnubu",
     },
     layout: {
       visibility: document.getElementById("grants_layer_lines").checked
         ? "visible"
         : "none",
     },
-    "source-layer": "lines_19202010_geacron",
+    "source-layer": "recombined-akk06o",
     paint: {
       "line-color": "#FF0000",
       "line-width": 3,

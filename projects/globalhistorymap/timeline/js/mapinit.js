@@ -119,8 +119,8 @@ afterMap.addControl(nav, "bottom-right");
 var init_bearing, init_center, init_zoom;
 
 var na_bearing = -51.3,
-  na_center = [-74.01255, 40.704882],
-  na_zoom = 16.34;
+  na_center = [24.7, -22],
+  na_zoom = 1.07;
 
 function testZoom() {
   var current_bearing = beforeMap.getBearing();

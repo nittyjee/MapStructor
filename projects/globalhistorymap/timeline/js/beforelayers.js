@@ -255,7 +255,7 @@ function addGrantLotsLinesBeforeLayers(date) {
     id: "grant-lots-lines-left"
   }, {
     type: "source",
-    id: "lines_19202010_geacron"
+    id: "recombined-akk06o"
   }])
 
   // Add a layer showing the places.

@@ -3,7 +3,7 @@
   <head>
     <!-- SOURCES-->
 
-    <title>Mapping Early New York - New Amsterdam History</title>
+    <title>Chron Data</title>
 
     <meta
       name="description"
@@ -198,37 +198,39 @@
           <label for="o" id="close" title="Close">&times;</label>
         </div>
         <div class="modal-content">
-          New York City was founded by the Dutch in 1624 as
-          <i>New Amsterdam</i>, the capital of New Netherland. The New Amsterdam
-          History Center is devoted to documenting and mapping New Amsterdam,
-          its diverse people, landscapes, institutions and global legacy today.
-          <p>
-            We’ve presented several versions of the <i>Castello Plan</i> and the
-            <i>Dutch Grants Map</i> here. You can see the settlement of houses,
-            farms, taverns and workshops, surrounded by walls. Over the three
-            centuries that followed, the area became the Financial District. The
-            east wall was torn down and named Wall Street. The canals were paved
-            over and turned into streets and in between developed skysrapers,
-            and the island was expanded with infill. Above ground, almost
-            nothing remains of New Amsterdam except the original street pattern.
-            Underground, archeologists have found evidence of the plots of
-            houses and gardens, Amsterdam yellow brick, and pollen samples of
-            plants.
-          </p>
-          You can swipe the map to compare the Castello Plan in 1660 to the
-          present, and explore each lot, where it shows what was there and who
-          lived there. Our next steps are to expand through the full history of
-          New Amsterdam with a timeline from 1624 to 1664, when it was taken
-          over by the English.
-          <p>
-            We need your help to make this work happen. Donate now to develop
-            the map and expand the research.
+              New York City was founded by the Dutch in 1624 as
+              <i>New Amsterdam</i>, the capital of New Netherland. The New Amsterdam
+              History Center is devoted to documenting and mapping New Amsterdam,
+              its diverse people, landscapes, institutions and global legacy today.
+              <p>
+                We’ve presented several versions of the <i>Castello Plan</i> and the
+                <i>Dutch Grants Map</i> here. You can see the settlement of houses,
+                farms, taverns and workshops, surrounded by walls. Over the three
+                centuries that followed, the area became the Financial District. The
+                east wall was torn down and named Wall Street. The canals were paved
+                over and turned into streets and in between developed skysrapers,
+                and the island was expanded with infill. Above ground, almost
+                nothing remains of New Amsterdam except the original street pattern.
+                Underground, archeologists have found evidence of the plots of
+                houses and gardens, Amsterdam yellow brick, and pollen samples of
+                plants.
+              </p>
+              You can swipe the map to compare the Castello Plan in 1660 to the
+              present, and explore each lot, where it shows what was there and who
+              lived there. Our next steps are to expand through the full history of
+              New Amsterdam with a timeline from 1624 to 1664, when it was taken
+              over by the English.
+              <p>
+                We need your help to make this work happen. Donate now to develop
+                the map and expand the research.
           </p>
         </div>
       </div>
     </div>
     <!-- HEADER -->
     <div class="header">
+
+      <!--
       <a href="http://newamsterdamhistorycenter.org" class="logo">
         <img
           id="logo-img-wide"
@@ -238,13 +240,17 @@
         <img id="logo-img" src="icons/icon_57x57.png" align="middle" />
       </a>
 
+      -->
+
       <!--PREVIOUS HEADER-->
 
       <div id="header_text" class="headerText">
-        <span id="headerTextSuffix">|</span> Mapping Early New York
+        <span id="headerTextSuffix">|</span> Chron Data
       </div>
 
+      <!--
       <div class="header-right">
+        
         <a
           class="encyclopedia"
           href="https://newamsterdamhistorycenter.org/full-3d-model/"
@@ -272,6 +278,7 @@
         <label id="about" class="trigger-popup" title="Open">ABOUT</label>
         <i class="fa fa-2x fa-info-circle trigger-popup" id="info"></i>
       </div>
+      -->
     </div>
 
     <!-- LAYER TOGGLE -->
@@ -296,31 +303,10 @@
       <i id="mobi-hide-sidebar" class="fa fa-arrow-circle-left fa-3x"></i>
       <p class="title">LAYERS</p>
       <br />
-      <center>
-        <b
-          ><i
-            class="fas fa-minus-square compress-expand-icon"
-            id="manahatta-section-caret"
-            onclick="sectionCompressExpand('#manahatta-section-layers','#manahatta-section-caret')"
-          ></i>
-          &nbsp; Manhattan</b
-        >
-      </center>
+
       <div id="manahatta-section-layers"></div>
       <br />
-      <center>
-        <b
-          ><i
-            class="fas fa-plus-square compress-expand-icon"
-            id="long-island-section-caret"
-            onclick="sectionCompressExpand('#long-island-section-layers','#long-island-section-caret')"
-          ></i>
-          &nbsp; Long Island</b
-        >
-      </center>
-      <div id="long-island-section-layers"></div>
 
-      <br />
       <div>
         <script src="js/generateLayers.js"></script>
         <hr />

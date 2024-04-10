@@ -237,7 +237,7 @@ function addGrantLotsLinesAfterLayers(date) {
   },
   {
     type: "source",
-    id: "lines_19202010_geacron"
+    id: "recombined-akk06o"
   }
 ])
   addMapLayer(afterMap, getLayer("grant-lots-lines-right"), date)
