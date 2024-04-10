@@ -6,14 +6,14 @@ const layers = [
     source: {
       type: "vector",
       //URL: CHANGE THIS, 2 OF 3
-      url: "mapbox://mapny.7q2vs9ar",
+      url: "mapbox://mapny.18d146m2",
     },
     layout: {
       visibility: document.getElementById("grants_layer").checked
         ? "visible"
         : "none",
     },
-    "source-layer": "dutch_grants-5ehfqe",
+    "source-layer": "output",
     paint: {
       "fill-color": "#e3ed58",
       "fill-opacity": [
@@ -28,19 +28,19 @@ const layers = [
   },
   {
     //ID: CHANGE THIS, 1 OF 3
-    id: "dutch_grants-5ehfqe",
+    id: "output",
     type: "fill",
     source: {
       type: "vector",
       //URL: CHANGE THIS, 2 OF 3
-      url: "mapbox://mapny.7q2vs9ar",
+      url: "mapbox://mapny.18d146m2",
     },
     layout: {
       visibility: document.getElementById("grants_layer").checked
         ? "visible"
         : "none",
     },
-    "source-layer": "dutch_grants-5ehfqe",
+    "source-layer": "output",
     paint: {
       "fill-color": "#e3ed58",
       "fill-opacity": [

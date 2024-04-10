@@ -213,7 +213,7 @@ $(document).ready(function () {
         getLotsInfo();
       }
       [
-        "dutch_grants-5ehfqe",
+        "output",
         "dutch_grants-5ehfqe-highlighted",
         "grant-lots-lines",
       ].forEach((id) => {
@@ -221,7 +221,7 @@ $(document).ready(function () {
       });
     } else {
       [
-        "dutch_grants-5ehfqe",
+        "output",
         "dutch_grants-5ehfqe-highlighted",
         "grant-lots-lines",
       ].forEach((id) => {
@@ -247,13 +247,13 @@ $(document).ready(function () {
       if (lots_info_length == 0) {
         getLotsInfo();
       }
-      ["dutch_grants-5ehfqe", "dutch_grants-5ehfqe-highlighted"].forEach(
+      ["output", "dutch_grants-5ehfqe-highlighted"].forEach(
         (id) => {
           setLayoutVisibilityForBothMaps(id, "visible")
         }
       );
     } else {
-      ["dutch_grants-5ehfqe", "dutch_grants-5ehfqe-highlighted"].forEach(
+      ["output", "dutch_grants-5ehfqe-highlighted"].forEach(
         (id) => {
           setLayoutVisibilityForBothMaps(id, "none")
         }

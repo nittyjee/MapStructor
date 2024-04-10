@@ -48,7 +48,7 @@ function dutchGrantPopUpContent(features) {
       "<br>";
   }
   PopUpHTML +=
-    "<b>Dutch Grant Lot: </b>" + features[0].properties.Lot + "</div>";
+    "<b>Dutch Grant Lot: </b>" + features[0].properties.label + "</div>";
   return PopUpHTML;
 }
 
@@ -394,7 +394,7 @@ function DutchGrantsClickHandle(event) {
       "<br>";
   }
   highPopUpHTML +=
-    "<b>Dutch Grant Lot: </b>" + event.features[0].properties.Lot + "</div>";
+    "<b>Dutch Grant Lot: </b>" + event.features[0].properties.label + "</div>";
 
   if (dgrants_layer_view_id == event.features[0].id) {
     if (dgrants_layer_view_flag) {

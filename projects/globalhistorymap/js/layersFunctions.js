@@ -94,8 +94,8 @@ function addAllLayers(yr, date) {
     removeMapSourceLayer(map, [
       { type: "layer", id: `lot_events-bf43eb${index !== 1 ? "-left" : "-right"}` },
       { type: "source", id: "lot_events-bf43eb" },
-      { type: "layer", id: `dutch_grants-5ehfqe` },
-      { type: "source", id: "dutch_grants-5ehfqe" },
+      { type: "layer", id: `output` },
+      { type: "source", id: "output" },
       { type: "layer", id: `grant-lots-lines` },
       { type: "source", id: "recombined-akk06o" },
     ]);
@@ -103,7 +103,7 @@ function addAllLayers(yr, date) {
       map,
       [
         { id: `dutch_grants-5ehfqe-highlighted` },
-        { id: `dutch_grants-5ehfqe` },
+        { id: `output` },
         { id: `lot_events-bf43eb${index !== 1 ? "-left" : "-right"}` },
         { id: `grant-lots-lines` },
         { id: `grant-lots` },
@@ -112,9 +112,9 @@ function addAllLayers(yr, date) {
     );
     setupLayerEvents(map, [
       {
-        id: `dutch_grants-5ehfqe`,
+        id: `output`,
         popup: `${popupMap}DutchGrantPopUp`,
-        sourceId: "dutch_grants-5ehfqe",
+        sourceId: "output",
       },
       {
         id: `lot_events-bf43eb${index !== 1 ? "-left" : "-right"}`,
