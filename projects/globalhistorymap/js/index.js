@@ -35,11 +35,13 @@ function setLayoutVisibilityForBothMaps(id, status){
 
 var lots_info = new Array();
 var lots_info_length = 0;
+/*
 getLotsInfo();
 getSettlementsInfo();
 getInfosEntity();
 getTaxlotEventsInfo();
 getTaxlotEventEntitiesDescrInfo();
+*/
 
 var modal_header_text = [];
 var modal_content_html = [];
@@ -104,7 +106,7 @@ $(document).ready(function () {
 
   //#region Layer Visibility Toggles
   // Toggles the visibility of various map layers
-  $(".dutch_grants_layer_item").hide();
+  //$(".german-layer-item").hide();
   $(".current_lots_layer_item").hide();
   $("#long-island-section-layers").slideUp();
   $("#info-section-layers").slideUp();
@@ -206,69 +208,73 @@ $(document).ready(function () {
     }
   });
 
-  $("#grants_layer_items").change(function () {
-    $(".grants_layer").prop("checked", this.checked);
+  $("#german_layer_items").change(function () {
+    $(".german_layer").prop("checked", this.checked);
     if ($(this).prop("checked")) {
+	  /*
       if (lots_info_length == 0) {
         getLotsInfo();
       }
+	  */
       [
-        "output",
-        "dutch_grants-5ehfqe-highlighted",
-        "grant-lots-lines",
+        "germany",
+        "germany-highlighted",
+        "germany-lines",
       ].forEach((id) => {
         setLayoutVisibilityForBothMaps(id, "visible")
       });
     } else {
       [
-        "output",
-        "dutch_grants-5ehfqe-highlighted",
-        "grant-lots-lines",
+        "germany",
+        "germany-highlighted",
+        "germany-lines",
       ].forEach((id) => {
         setLayoutVisibilityForBothMaps(id, "none")
       });
 
-      if (dgrants_layer_view_flag) {
-        closeDutchGrantsInfo();
+      if (germany_layer_view_flag) {
+        closeGermanyInfo();
       }
     }
   });
 
-  $(".grants_layer").change(function () {
-    if ($(".grants_layer:checked").length == $(".grants_layer").length) {
-      $("#grants_layer_items").prop("checked", "checked");
+  $(".german_layer").change(function () {
+    if ($(".german_layer:checked").length == $(".german_layer").length) {
+      $("#german_layer_items").prop("checked", "checked");
     } else {
-      $("#grants_layer_items").prop("checked", false);
+      $("#german_layer_items").prop("checked", false);
     }
   });
 
-  $("#grants_layer").click(function () {
+  $("#german_layer").click(function () {
     if ($(this).prop("checked")) {
+	  /*
       if (lots_info_length == 0) {
         getLotsInfo();
       }
-      ["output", "dutch_grants-5ehfqe-highlighted"].forEach(
+	  */
+      ["germany", "germany-highlighted"].forEach(
         (id) => {
           setLayoutVisibilityForBothMaps(id, "visible")
         }
       );
     } else {
-      ["output", "dutch_grants-5ehfqe-highlighted"].forEach(
+      ["germany", "germany-highlighted"].forEach(
         (id) => {
           setLayoutVisibilityForBothMaps(id, "none")
         }
       );
-      if (dgrants_layer_view_flag) {
-        closeDutchGrantsInfo();
+      if (germany_layer_view_flag) {
+        closeGermanyInfo();
       }
     }
   });
 
-  $("#grants_layer_lines").click(function () {
+  $("#german_layer_lines").click(function () {
     if ($(this).prop("checked")) {
-      setLayoutVisibilityForBothMaps("grant-lots-lines", "visible")
+      setLayoutVisibilityForBothMaps("germany-lines", "visible")
     } else {
-      setLayoutVisibilityForBothMaps("grant-lots-lines", "none")
+      setLayoutVisibilityForBothMaps("germany-lines", "none")
     }
   });
 
