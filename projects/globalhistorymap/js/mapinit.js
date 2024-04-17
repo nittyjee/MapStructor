@@ -13,18 +13,18 @@ mapboxgl.accessToken =
 var beforeMap = new mapboxgl.Map({
   container: "before",
   style: "mapbox://styles/mapny/clm2yrx1y025401p93v26bhyl",
-  center: [0, 0],
+  center: [12.07,25.51],
   hash: true,
-  zoom: 0,
+  zoom: 3,
   attributionControl: false,
 });
 
 var afterMap = new mapboxgl.Map({
   container: "after",
   style: "mapbox://styles/mapny/clm2yu5fg022801phfh479c8x",
-  center: [0, 0],
+  center: [12.07,25.51],
   hash: true,
-  zoom: 0,
+  zoom: 3,
   attributionControl: false,
 });
 
