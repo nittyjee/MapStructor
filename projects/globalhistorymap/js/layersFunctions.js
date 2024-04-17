@@ -19,6 +19,18 @@ function setupLayerEvents(map, layers) {
       layer.id,
       (e) => {
         if (e.features.length > 0) {
+			/*
+		  console.log(layer); // output
+		  console.log(layer.id); // output
+		  console.log(layer.sourceId); 
+		  console.log(e.features[0].properties);
+		  console.log(e.features[0].id);
+		  console.log(e.features[0].layer['source-layer']);
+		  console.log(e.features[0].properties.fid);
+		  
+		  layer.sourceId = e.features[0].layer['source-layer'];
+		  */
+		  
           if (hoveredId) {
             // Reset the previous feature's state
             map.setFeatureState(
@@ -26,12 +38,13 @@ function setupLayerEvents(map, layers) {
               { hover: false }
             );
           }
-
+          
+		  // layer.id === "output" ? e.features[0].properties.fid :
           hoveredId = e.features[0].id;
 
           // Set the new feature's state
           map.setFeatureState(
-            { source: layer.id, id: hoveredId, sourceLayer: layer.sourceId },
+            { source: layer.id,  id: hoveredId, sourceLayer: layer.sourceId },
             { hover: true }
           );
           if (layer.id === "places-right") {
@@ -50,6 +63,7 @@ function setupLayerEvents(map, layers) {
             const popup = getPopupByName(layer.popup);
             if (popup) {
               const content = generatePopupContent(layer.id, e.features, map);
+			  //console.log(content);
               popup.setLngLat(e.lngLat).setHTML(content);
             }
           }
@@ -92,29 +106,29 @@ function addAllLayers(yr, date) {
 
     //#region - Lot events and dutch grants
     removeMapSourceLayer(map, [
-      { type: "layer", id: `lot_events-bf43eb${index !== 1 ? "-left" : "-right"}` },
-      { type: "source", id: "lot_events-bf43eb" },
-      { type: "layer", id: `output` },
-      { type: "source", id: "output" },
-      { type: "layer", id: `grant-lots-lines` },
-      { type: "source", id: "recombined-akk06o" },
+      //{ type: "layer", id: `lot_events-bf43eb${index !== 1 ? "-left" : "-right"}` },
+      //{ type: "source", id: "lot_events-bf43eb" },
+      { type: "layer", id: `germany` },
+      { type: "source", id: "geacron_shps_testing-89qva4" },
+      { type: "layer", id: `germany-lines` },
+      { type: "source", id: "geacron_shps_testing-89qva4" },
     ]);
     addMapLayers(
       map,
       [
-        { id: `dutch_grants-5ehfqe-highlighted` },
-        { id: `output` },
-        { id: `lot_events-bf43eb${index !== 1 ? "-left" : "-right"}` },
-        { id: `grant-lots-lines` },
+        { id: `germany-highlighted` },
+        { id: `germany` },
+        //{ id: `lot_events-bf43eb${index !== 1 ? "-left" : "-right"}` },
+        { id: `germany-lines` },
         { id: `grant-lots` },
       ],
       date
     );
     setupLayerEvents(map, [
       {
-        id: `output`,
+        id: `germany`,
         popup: `${popupMap}DutchGrantPopUp`,
-        sourceId: "output",
+        sourceId: "geacron_shps_testing-89qva4",
       },
       {
         id: `lot_events-bf43eb${index !== 1 ? "-left" : "-right"}`,
