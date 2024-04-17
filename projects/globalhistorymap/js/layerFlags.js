@@ -2,12 +2,12 @@
 // #region Variable Initialization
 // Initialize variables for view IDs and visibility flags for different layers.
 
-var dgrants_layer_view_id = null,
+var german_layer_view_id = null,
   native_group_layer_view_id = null,
   grant_lots_view_flag = false,
   demo_layer_view_flag = false,
   castello_layer_view_flag = false,
-  dgrants_layer_view_flag = false,
+  germany_layer_view_flag = false,
   native_group_layer_view_flag = false;
 
 // #endregion
@@ -18,7 +18,7 @@ var dgrants_layer_view_id = null,
 var castello_click_ev = false,
   grant_lots_click_ev = false,
   demo_taxlot_click_ev = false,
-  dutch_grant_click_ev = false,
+  germany_click_ev = false,
   native_groups_click_ev = false,
   farms_click_ev = false,
   settlements_click_ev = false,
