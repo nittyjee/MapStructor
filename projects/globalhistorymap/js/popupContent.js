@@ -4,7 +4,7 @@
 
 function generatePopupContent(id, features, map) {
   const contentGenerators = {
-    [`dutch_grants-5ehfqe`]: dutchGrantPopUpContent,
+	[`germany`]: GermanyPopUpContent,
     [id === "lot_events-bf43eb-right"
       ? "lot_events-bf43eb-right"
       : `lot_events-bf43eb-left`]: lotEventsPopupContent,
@@ -31,24 +31,14 @@ function getPopupByName(name) {
 // for a different type of map layer popup. Functions are customized for Dutch Grants,
 // Lot Events, Castello Events, and Long Island features, providing tailored content for each.
 
-// Generates popup content for Dutch Grants, including name and lot details.
-function dutchGrantPopUpContent(features) {
+// Generates popup content for Germany, including name and lot details.
+function GermanyPopUpContent(features) {
+  //console.warn(features);
   let PopUpHTML = "";
-  if (typeof dutch_grant_lots_info[features[0].properties.Lot] == "undefined") {
-    PopUpHTML =
-      "<div class='infoLayerDutchGrantsPopUp'>" +
-      features[0].properties.name +
-      "<br>";
-  } else {
-    PopUpHTML =
-      "<div class='infoLayerDutchGrantsPopUp'>" +
-      (dutch_grant_lots_info[features[0].properties.Lot].name_txt.length > 0
-        ? dutch_grant_lots_info[features[0].properties.Lot].name_txt
-        : features[0].properties.name) +
-      "<br>";
-  }
-  PopUpHTML +=
-    "<b>Dutch Grant Lot: </b>" + features[0].properties.label + "</div>";
+  
+  PopUpHTML =
+      "<div class='infoLayerDutchGrantsPopUp'><i>" + features[0].properties.label + "</i></div>";
+	  
   return PopUpHTML;
 }
 
@@ -168,12 +158,11 @@ var demo_layer_feature_props = null,
           console.log(e.features[0].properties)
           CastelloClickHandle(e);
       })
-
-      .on("click", `dutch_grants-5ehfqe`, function (e) {
+      //.on("click", `dutch_grants-5ehfqe`, function (e) {
+	  .on("click", `germany`, function (e) {
           console.log(e.features[0].properties)
-          DutchGrantsClickHandle(e);
+          GermanyClickHandle(e);
       })
-
       .on("click", `native-groups-area`, function (e) {
           console.log(e.features[0].properties)
           NativeGroupsClickHandle(e);
@@ -195,7 +184,7 @@ function DefaultHandle() {
     !demo_taxlot_click_ev &&
     !castello_click_ev &&
     !grant_lots_click_ev &&
-    !dutch_grant_click_ev &&
+    !germany_click_ev &&
     !farms_click_ev &&
     !curr_layer_click_ev &&
     !settlements_click_ev &&
@@ -213,7 +202,7 @@ function DefaultHandle() {
   demo_taxlot_click_ev = false;
   castello_click_ev = false;
   grant_lots_click_ev = false;
-  dutch_grant_click_ev = false;
+  germany_click_ev = false;
   native_groups_click_ev = false;
   zoom_labels_click_ev = false;
 }
@@ -348,22 +337,22 @@ function DemoClickHandle(event) {
   demo_taxlot_click_ev = true;
 }
 
-function closeDutchGrantsInfo() {
+function closeGermanyInfo() {
   $("#infoLayerDutchGrants").slideUp();
-  dgrants_layer_view_flag = false;
+  germany_layer_view_flag = false;
   afterMap.setFeatureState(
     {
-      source: "dutch_grants-5ehfqe-highlighted",
-      sourceLayer: "dutch_grants-5ehfqe",
-      id: dgrants_layer_view_id,
+      source: "germany-highlighted",
+      sourceLayer: "geacron_shps_testing-89qva4",
+      id: german_layer_view_id,
     },
     { hover: false }
   );
   beforeMap.setFeatureState(
     {
-      source: "dutch_grants-5ehfqe-highlighted",
-      sourceLayer: "dutch_grants-5ehfqe",
-      id: dgrants_layer_view_id,
+      source: "germany-highlighted",
+      sourceLayer: "geacron_shps_testing-89qva4",
+      id: german_layer_view_id,
     },
     { hover: false }
   );
@@ -373,31 +362,16 @@ function closeDutchGrantsInfo() {
   });
 }
 
-function DutchGrantsClickHandle(event) {
+function GermanyClickHandle(event) {
+  
+  console.log(event.features[0].id);
+  // dutch_grant_lots_info[event.features[0].properties.Lot]
+  
+  var highPopUpHTML = "<div class='infoLayerDutchGrantsPopUp'><b>" + event.features[0].properties.label + "</b></div>";
 
-  var highPopUpHTML = "";
-  if (
-    typeof dutch_grant_lots_info[event.features[0].properties.Lot] ==
-    "undefined"
-  ) {
-    highPopUpHTML =
-      "<div class='infoLayerDutchGrantsPopUp'>" +
-      event.features[0].properties.name +
-      "<br>";
-  } else {
-    highPopUpHTML =
-      "<div class='infoLayerDutchGrantsPopUp'>" +
-      (dutch_grant_lots_info[event.features[0].properties.Lot].name_txt.length >
-      0
-        ? dutch_grant_lots_info[event.features[0].properties.Lot].name_txt
-        : event.features[0].properties.name) +
-      "<br>";
-  }
-  highPopUpHTML +=
-    "<b>Dutch Grant Lot: </b>" + event.features[0].properties.label + "</div>";
 
-  if (dgrants_layer_view_id == event.features[0].id) {
-    if (dgrants_layer_view_flag) {
+  if (german_layer_view_id == event.features[0].id) {
+    if (germany_layer_view_flag) {
       if ($("#view-hide-layer-panel").length > 0)
         if (!layer_view_flag) {
           $("#rightInfoBar").css("display", "block");
@@ -406,7 +380,7 @@ function DutchGrantsClickHandle(event) {
           }, 500);
         }
 
-      closeDutchGrantsInfo();
+      closeGermanyInfo();
     } else {
       buildPopUpInfo(event.features[0].properties, "#infoLayerDutchGrants");
       if ($(".infoLayerElem").first().attr("id") != "infoLayerDutchGrants")
@@ -414,20 +388,20 @@ function DutchGrantsClickHandle(event) {
       $("#infoLayerDutchGrants").slideDown();
       if ($("#view-hide-layer-panel").length > 0)
         if (!layer_view_flag) $("#view-hide-layer-panel").trigger("click");
-      dgrants_layer_view_flag = true;
+      germany_layer_view_flag = true;
       afterMap.setFeatureState(
         {
-          source: "dutch_grants-5ehfqe-highlighted",
-          sourceLayer: "dutch_grants-5ehfqe",
-          id: dgrants_layer_view_id,
+          source: "germany-highlighted",
+          sourceLayer: "geacron_shps_testing-89qva4",
+          id: german_layer_view_id,
         },
         { hover: true }
       );
       beforeMap.setFeatureState(
         {
-          source: "dutch_grants-5ehfqe-highlighted",
-          sourceLayer: "dutch_grants-5ehfqe",
-          id: dgrants_layer_view_id,
+          source: "germany-highlighted",
+          sourceLayer: "geacron_shps_testing-89qva4",
+          id: german_layer_view_id,
         },
         { hover: true }
       );
@@ -447,36 +421,36 @@ function DutchGrantsClickHandle(event) {
     $("#infoLayerDutchGrants").slideDown();
     if ($("#view-hide-layer-panel").length > 0)
       if (!layer_view_flag) $("#view-hide-layer-panel").trigger("click");
-    dgrants_layer_view_flag = true;
+    germany_layer_view_flag = true;
     //*A#
     afterMap.setFeatureState(
       {
-        source: "dutch_grants-5ehfqe-highlighted",
-        sourceLayer: "dutch_grants-5ehfqe",
-        id: dgrants_layer_view_id,
+        source: "germany-highlighted",
+        sourceLayer: "geacron_shps_testing-89qva4",
+        id: german_layer_view_id,
       },
       { hover: false }
     );
     afterMap.setFeatureState(
       {
-        source: "dutch_grants-5ehfqe-highlighted",
-        sourceLayer: "dutch_grants-5ehfqe",
+        source: "germany-highlighted",
+        sourceLayer: "geacron_shps_testing-89qva4",
         id: event.features[0].id,
       },
       { hover: true }
     );
     beforeMap.setFeatureState(
       {
-        source: "dutch_grants-5ehfqe-highlighted",
-        sourceLayer: "dutch_grants-5ehfqe",
-        id: dgrants_layer_view_id,
+        source: "germany-highlighted",
+        sourceLayer: "geacron_shps_testing-89qva4",
+        id: german_layer_view_id,
       },
       { hover: false }
     );
     beforeMap.setFeatureState(
       {
-        source: "dutch_grants-5ehfqe-highlighted",
-        sourceLayer: "dutch_grants-5ehfqe",
+        source: "germany-highlighted",
+        sourceLayer: "geacron_shps_testing-89qva4",
         id: event.features[0].id,
       },
       { hover: true }
@@ -490,8 +464,8 @@ function DutchGrantsClickHandle(event) {
         popupsObject[`${position}HighMapGrantLotPopUp`].addTo(map);
     });
   }
-  dgrants_layer_view_id = event.features[0].id;
-  dutch_grant_click_ev = true;
+  german_layer_view_id = event.features[0].id;
+  germany_click_ev = true;
 }
 
 function closeNativeGroupsInfo() {
