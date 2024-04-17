@@ -13,7 +13,7 @@
  * }[]} layers
  * @returns {string}
  */
-function renderManhattanLayers(layers) {
+function renderGermanyLayers(layers) {
   const lastBitOfManhattanSectionTemplate = `
 <div class="layer-list-row">
   <input
@@ -43,7 +43,7 @@ function renderManhattanLayers(layers) {
   let r = "";
   layers.forEach((layer) => {
     if (layer.type === "group") {
-      r += renderLayerRow(layer);
+      r += renderLayerRow(layer,true);
     } else if (layer.type === "lots-events") {
       r += renderCirclePointLayerRow(layer);
     } else if (layer.type === "grants-lots") {
@@ -179,7 +179,7 @@ function renderLayerRow(layerData, isMinus=false) {
           <div class="layer-buttons-list">
             <i
               class="fa fa-crosshairs zoom-to-layer"
-              onclick="${(layerData.id === "current_lots_items" || layerData.id === "grants_layer_items")? "zoomtocenter('NA')" :(layerData.id === "farms_layer_items"? `zoomtocenter('${layerData.zoomTo}')`:`zoomtobounds('${layerData.zoomTo || ""}')`)}"
+              onclick="${(layerData.id === "current_lots_items" || layerData.id === "german_layer_items")? `zoomtocenter('${layerData.zoomTo}')` :(layerData.id === "farms_layer_items"? `zoomtocenter('${layerData.zoomTo}')`:`zoomtobounds('${layerData.zoomTo || ""}')`)}"
               title="Zoom to Layer"
             ></i>
             <i
@@ -212,7 +212,7 @@ function renderLayerRow(layerData, isMinus=false) {
  */
 function renderManahattaLayerItem(layerData) {
   const html = `
-      <div class="layer-list-row ${layerData.topLayerClass}_item">
+      <div class="layer-list-row ${layerData.topLayerClass}-item">
         &nbsp; &nbsp; &nbsp;
         <input
           type="checkbox"
@@ -387,9 +387,8 @@ function renderCastelloPointsLayerRow(layerData) {
 
 
 try{
-$("#long-island-section-layers").html(renderLongIslandLayers(longIslandLayerSections))
-$("#manahatta-section-layers").html(
-  renderManhattanLayers(manhattanLayerSections)
+$("#germany-section-layers").html(
+  renderGermanyLayers(GermnLayerSections)
 );
 }catch(error){
   console.log(error)
