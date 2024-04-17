@@ -73,6 +73,20 @@ function testZoom() {
   
   function zoomtocenter(centerName) {
     switch (centerName) {
+	  case "NorthAfrica":
+        beforeMap.easeTo({
+          center: [12.07,25.51], //north_africa_center,
+          zoom: 3,               //north_africa_zoom,
+          bearing: 0,            //north_africa_bearing,
+          pitch: 0,
+        });
+        afterMap.easeTo({
+          center: [12.07,25.51], //north_africa_center,
+          zoom: 3,               //north_africa_zoom,
+          bearing: 0,            //north_africa_bearing,
+          pitch: 0,
+        });
+        break;
       case "NA":
         beforeMap.easeTo({
           center: na_center,
