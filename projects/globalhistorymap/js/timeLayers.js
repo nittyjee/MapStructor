@@ -5,7 +5,7 @@ function changeDate(unixDate) {
   var dateFilter = ["all", ["<=", "DayStart", date], [">=", "DayEnd", date]];
 
   //LAYERS FOR FILTERING
-  ["dutch_grants-5ehfqe", "dutch_grants-5ehfqe-highlighted", "grant-lots-lines"].forEach(id => {
+  ["germany-highlighted", "germany-lines", "germany"].forEach(id => {
     beforeMap.setFilter(id, dateFilter)
     afterMap.setFilter(id, dateFilter)
   })
