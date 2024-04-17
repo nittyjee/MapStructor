@@ -77,53 +77,8 @@ const buildPopUpInfo = (props, sliderPopupName, type) => {
       });
   } else {
     let popup_html = "";
-    if (typeof lots_info[props.Lot] === "undefined") {
-      popup_html = `<h3>Dutch Grant</h3><hr>${props.name}<br><b>Dutch Grant Lot:</b> <a href='https://encyclopedia.nahc-mapping.org/grantlot/${props.Lot}' target='_blank'>${props.Lot}</a><br><br><b>Start:</b> <i>${props.day1} ${props.year1}</i><br><b>End:</b> <i>${props.day2} ${props.year2}</i><br><br><b>Description (partial):</b><br>${props.descriptio}<br><br>`;
-    } else {
-      let builds_imgs = "";
-      if (lots_info[props.Lot].builds.length > 0) {
-        for (let i = 0; i < lots_info[props.Lot].builds.length; i++) {
-          builds_imgs += `<img src='https://encyclopedia.nahc-mapping.org${
-            lots_info[props.Lot].builds[i]
-          }' width='258' ><br><br>`;
-        }
-      }
-      popup_html = `<h3>Dutch Grant</h3><hr><br><b>Dutch Grant Lot:</b> <a href='https://encyclopedia.nahc-mapping.org/lots/grantlot${props.Lot}' target='_blank'>${props.Lot}</a><br><br>`;
-      if (lots_info[props.Lot].to_party_linked.length > 0) {
-        popup_html += `<b>To Party:</b> <i>${
-          lots_info[props.Lot].to_party_linked
-        }</i><br><br>`;
-      } else if (lots_info[props.Lot].to_party.length > 0) {
-        popup_html += `<b>To Party:</b> <i>${
-          lots_info[props.Lot].to_party
-        }</i><br><br>`;
-      }
-      if (lots_info[props.Lot].from_party_linked.length > 0) {
-        popup_html += `<b>From Party:</b> <i>${
-          lots_info[props.Lot].from_party_linked
-        }</i><br><br>`;
-      } else if (lots_info[props.Lot].from_party.length > 0) {
-        popup_html += `<b>From Party:</b> <i>${
-          lots_info[props.Lot].from_party
-        }</i><br><br>`;
-      }
-      if (lots_info[props.Lot].date_start.length > 0) {
-        popup_html += `<b>Start:</b> <i>${
-          lots_info[props.Lot].date_start
-        }</i><br>`;
-      }
-      if (lots_info[props.Lot].date_end.length > 0) {
-        popup_html += `<b>End:</b> <i>${
-          lots_info[props.Lot].date_end
-        }</i><br><br>`;
-      }
-      if (lots_info[props.Lot].descr.length > 0) {
-        popup_html += `<b>Description:</b><br><i>${
-          lots_info[props.Lot].descr
-        }</i>`;
-      }
-      popup_html += `<br><br>${builds_imgs}`;
-    }
+        popup_html = `<h3>Germany</h3><hr><br><b>${props.label}</b> <br><br><b>Start:</b> <i>${props.start2}</i><br><b>End:</b> <i>${props.end2}</i><br><br>`;
+
     $("#infoLayerDutchGrants").html(popup_html);
   }
 };
