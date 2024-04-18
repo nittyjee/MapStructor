@@ -2,16 +2,30 @@
 <html>
 <head>
     <title>Grayscale to Color Mapping with Slider</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+        #sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 200px; /* Adjust as necessary */
+            height: 100%;
+            background-color: #f0f0f0;
+            padding: 10px;
+            box-sizing: border-box;
+            overflow-y: auto;
         }
         #sliderContainer {
             position: fixed;
             bottom: 0;
-            width: 100%;
+            left: 200px; /* Align with the right edge of the sidebar */
+            right: 0;
             background-color: #f0f0f0;
             padding: 10px 0;
         }
@@ -19,6 +33,7 @@
             width: 100%;
             height: 50px;
             -webkit-appearance: none;
+            appearance: none;
         }
         #visibilitySlider::-webkit-slider-thumb {
             -webkit-appearance: none;
@@ -34,12 +49,60 @@
             background: #4CAF50;
             cursor: pointer;
         }
+        canvas {
+            margin-left: 210px; /* Ensure canvas does not overlap sidebar */
+        }
+
+        /* Media Query for screen width less than 600px */
+        @media (max-width: 600px) {
+            #sidebar {
+                position: fixed;
+                left: 0;
+                bottom: 50px; /* Height of the slider container */
+                width: 100%; /* Full width */
+                height: calc(100% - 50px); /* Adjust height to exclude slider height */
+                padding: 10px;
+                overflow-y: auto; /* Enable scrolling on small screens */
+                top: auto; /* Reset top property */
+            }
+            #sliderContainer {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0; /* Ensure it spans the full width of the viewport */
+                padding: 10px 0;
+            }
+            canvas {
+                margin-left: 0; /* Remove left margin for canvas on small screens */
+                width: 100%; /* Adjust canvas width to fit screen width */
+            }
+        }
+
     </style>
 </head>
 <body>
-    <canvas id="colorCanvas" width="500" height="500"></canvas>
-    <div id="sliderContainer">
-        <input type="range" id="visibilitySlider" min="0" max="254" value="254">
+    <div id="sidebar">
+        <!-- Cumulative Land Values -->
+        <div>
+            <strong>Cumulative Land Values:</strong>
+            <br>
+            <span>Total: <span id="cumValMult28"></span></span>
+            <br>
+            <span>Percent: <span id="cumPctVal"></span></span>
+        </div>
+        <br>
+    
+        <!-- Cumulative Land -->
+        <div>
+            <strong>Cumulative Land:</strong>
+            <br>
+            <span>Total (sq km): <span id="sqKm"></span></span>
+            <br>
+            <span>Percentage of Land: <span id="cumPctLand"></span></span>
+        </div>
+        <br>
+    
+        <!-- Detailed Grayscale and Value Information -->
         <div>
             <span>Num: <span id="num"></span></span>
             <br>
@@ -64,9 +127,14 @@
             <span>Percentage of Land: <span id="pctLand"></span></span>
             <br>
             <span>Cumulative Percentage of Land: <span id="cumPctLand"></span></span>
+    
         </div>
-        
-        
+        <br>
+    </div>
+    
+    <canvas id="colorCanvas" width="500" height="500"></canvas>
+    <div id="sliderContainer">
+        <input type="range" id="visibilitySlider" min="0" max="254" value="254">
     </div>    
     <script>
 // Define the custom values for specific slider positions
