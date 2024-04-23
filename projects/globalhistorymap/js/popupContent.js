@@ -5,6 +5,7 @@
 function generatePopupContent(id, features, map) {
   const contentGenerators = {
 	[`germany`]: GermanyPopUpContent,
+	[`global`]: GlobalPopUpContent,
     [id === "lot_events-bf43eb-right"
       ? "lot_events-bf43eb-right"
       : `lot_events-bf43eb-left`]: lotEventsPopupContent,
@@ -37,10 +38,22 @@ function GermanyPopUpContent(features) {
   let PopUpHTML = "";
   
   PopUpHTML =
+      "<div class='infoLayerCurrLotsPopUp'><i>" + features[0].properties.label + "</i></div>";
+	  
+  return PopUpHTML;
+}
+
+// Generates popup content for Global, including name and lot details.
+function GlobalPopUpContent(features) {
+  //console.warn(features);
+  let PopUpHTML = "";
+  
+  PopUpHTML =
       "<div class='infoLayerDutchGrantsPopUp'><i>" + features[0].properties.label + "</i></div>";
 	  
   return PopUpHTML;
 }
+
 
 // Generates popup content for Lot Events, displaying taxlot information with a hyperlink.
 function lotEventsPopupContent(features) {
@@ -163,6 +176,10 @@ var demo_layer_feature_props = null,
           console.log(e.features[0].properties)
           GermanyClickHandle(e);
       })
+	  .on("click", `global`, function (e) {
+          console.log(e.features[0].properties)
+          GlobalClickHandle(e);
+      })
       .on("click", `native-groups-area`, function (e) {
           console.log(e.features[0].properties)
           NativeGroupsClickHandle(e);
@@ -183,16 +200,8 @@ function DefaultHandle() {
   if (
     !demo_taxlot_click_ev &&
     !castello_click_ev &&
-    !grant_lots_click_ev &&
     !germany_click_ev &&
-    !farms_click_ev &&
-    !curr_layer_click_ev &&
-    !settlements_click_ev &&
-    !info_click_ev &&
-    !gravesend_click_ev &&
-    !native_groups_click_ev &&
-    !karl_click_ev &&
-    !zoom_labels_click_ev
+	!global_click_ev 
   ) {
     if (windoWidth > 637)
       if ($("#view-hide-layer-panel").length > 0)
@@ -201,10 +210,8 @@ function DefaultHandle() {
 
   demo_taxlot_click_ev = false;
   castello_click_ev = false;
-  grant_lots_click_ev = false;
   germany_click_ev = false;
-  native_groups_click_ev = false;
-  zoom_labels_click_ev = false;
+  global_click_ev = false;
 }
 
 //#endregion
@@ -338,7 +345,7 @@ function DemoClickHandle(event) {
 }
 
 function closeGermanyInfo() {
-  $("#infoLayerDutchGrants").slideUp();
+  $("#infoLayerCurrLots").slideUp();
   germany_layer_view_flag = false;
   afterMap.setFeatureState(
     {
@@ -367,7 +374,7 @@ function GermanyClickHandle(event) {
   console.log(event.features[0].id);
   // dutch_grant_lots_info[event.features[0].properties.Lot]
   
-  var highPopUpHTML = "<div class='infoLayerDutchGrantsPopUp'><b>" + event.features[0].properties.label + "</b></div>";
+  var highPopUpHTML = "<div class='infoLayerCurrLotsPopUp'><b>" + event.features[0].properties.label + "</b></div>";
 
 
   if (german_layer_view_id == event.features[0].id) {
@@ -382,10 +389,10 @@ function GermanyClickHandle(event) {
 
       closeGermanyInfo();
     } else {
-      buildPopUpInfo(event.features[0].properties, "#infoLayerDutchGrants");
-      if ($(".infoLayerElem").first().attr("id") != "infoLayerDutchGrants")
-        $("#infoLayerDutchGrants").insertBefore($(".infoLayerElem").first());
-      $("#infoLayerDutchGrants").slideDown();
+      buildPopUpInfo(event.features[0].properties, "#infoLayerCurrLots");
+      if ($(".infoLayerElem").first().attr("id") != "infoLayerCurrLots")
+        $("#infoLayerCurrLots").insertBefore($(".infoLayerElem").first());
+      $("#infoLayerCurrLots").slideDown();
       if ($("#view-hide-layer-panel").length > 0)
         if (!layer_view_flag) $("#view-hide-layer-panel").trigger("click");
       germany_layer_view_flag = true;
@@ -415,10 +422,10 @@ function GermanyClickHandle(event) {
       });
     }
   } else {
-    buildPopUpInfo(event.features[0].properties, "#infoLayerDutchGrants");
-    if ($(".infoLayerElem").first().attr("id") != "infoLayerDutchGrants")
-      $("#infoLayerDutchGrants").insertBefore($(".infoLayerElem").first());
-    $("#infoLayerDutchGrants").slideDown();
+    buildPopUpInfo(event.features[0].properties, "#infoLayerCurrLots");
+    if ($(".infoLayerElem").first().attr("id") != "infoLayerCurrLots")
+      $("#infoLayerCurrLots").insertBefore($(".infoLayerElem").first());
+    $("#infoLayerCurrLots").slideDown();
     if ($("#view-hide-layer-panel").length > 0)
       if (!layer_view_flag) $("#view-hide-layer-panel").trigger("click");
     germany_layer_view_flag = true;
@@ -466,6 +473,139 @@ function GermanyClickHandle(event) {
   }
   german_layer_view_id = event.features[0].id;
   germany_click_ev = true;
+}
+
+
+function closeGlobalInfo() {
+  $("#infoLayerDutchGrants").slideUp();
+  global_layer_view_flag = false;
+  afterMap.setFeatureState(
+    {
+      source: "global-highlighted",
+      sourceLayer: "1920-2010_geacron_reprojected-956e43",
+      id: global_layer_view_id,
+    },
+    { hover: false }
+  );
+  beforeMap.setFeatureState(
+    {
+      source: "global-highlighted",
+      sourceLayer: "1920-2010_geacron_reprojected-956e43",
+      id: global_layer_view_id,
+    },
+    { hover: false }
+  );
+  ["before", "after"].forEach((position) => {
+    if (popupsObject[`${position}HighMapGrantLotPopUp`].isOpen())
+      popupsObject[`${position}HighMapGrantLotPopUp`].remove();
+  });
+}
+
+
+function GlobalClickHandle(event) {
+  
+  console.log(event.features[0].id);
+  // dutch_grant_lots_info[event.features[0].properties.Lot]
+  
+  var highPopUpHTML = "<div class='infoLayerDutchGrantsPopUp'><b>" + event.features[0].properties.label + "</b></div>";
+
+
+  if (global_layer_view_id == event.features[0].id) {
+    if (global_layer_view_flag) {
+      if ($("#view-hide-layer-panel").length > 0)
+        if (!layer_view_flag) {
+          $("#rightInfoBar").css("display", "block");
+          setTimeout(function () {
+            $("#rightInfoBar").slideUp();
+          }, 500);
+        }
+
+      closeGlobalInfo();
+    } else {
+      buildPopUpInfo(event.features[0].properties, "#infoLayerDutchGrants");
+      if ($(".infoLayerElem").first().attr("id") != "infoLayerDutchGrants")
+        $("#infoLayerDutchGrants").insertBefore($(".infoLayerElem").first());
+      $("#infoLayerDutchGrants").slideDown();
+      if ($("#view-hide-layer-panel").length > 0)
+        if (!layer_view_flag) $("#view-hide-layer-panel").trigger("click");
+      global_layer_view_flag = true;
+      afterMap.setFeatureState(
+        {
+          source: "global-highlighted",
+          sourceLayer: "1920-2010_geacron_reprojected-956e43",
+          id: global_layer_view_id,
+        },
+        { hover: true }
+      );
+      beforeMap.setFeatureState(
+        {
+          source: "global-highlighted",
+          sourceLayer: "1920-2010_geacron_reprojected-956e43",
+          id: global_layer_view_id,
+        },
+        { hover: true }
+      );
+      ["after", "before"].forEach((position) => {
+        const map = position === "after" ? afterMap : beforeMap;
+        popupsObject[`${position}HighMapGrantLotPopUp`]
+          .setLngLat(event.lngLat)
+          .setHTML(highPopUpHTML);
+        if (!popupsObject[`${position}HighMapGrantLotPopUp`].isOpen())
+          popupsObject[`${position}HighMapGrantLotPopUp`].addTo(map);
+      });
+    }
+  } else {
+    buildPopUpInfo(event.features[0].properties, "#infoLayerDutchGrants");
+    if ($(".infoLayerElem").first().attr("id") != "infoLayerDutchGrants")
+      $("#infoLayerDutchGrants").insertBefore($(".infoLayerElem").first());
+    $("#infoLayerDutchGrants").slideDown();
+    if ($("#view-hide-layer-panel").length > 0)
+      if (!layer_view_flag) $("#view-hide-layer-panel").trigger("click");
+    global_layer_view_flag = true;
+    //*A#
+    afterMap.setFeatureState(
+      {
+        source: "global-highlighted",
+        sourceLayer: "1920-2010_geacron_reprojected-956e43",
+        id: global_layer_view_id,
+      },
+      { hover: false }
+    );
+    afterMap.setFeatureState(
+      {
+        source: "global-highlighted",
+        sourceLayer: "1920-2010_geacron_reprojected-956e43",
+        id: event.features[0].id,
+      },
+      { hover: true }
+    );
+    beforeMap.setFeatureState(
+      {
+        source: "global-highlighted",
+        sourceLayer: "1920-2010_geacron_reprojected-956e43",
+        id: global_layer_view_id,
+      },
+      { hover: false }
+    );
+    beforeMap.setFeatureState(
+      {
+        source: "global-highlighted",
+        sourceLayer: "1920-2010_geacron_reprojected-956e43",
+        id: event.features[0].id,
+      },
+      { hover: true }
+    );
+    ["after", "before"].forEach((position) => {
+      const map = position === "after" ? afterMap : beforeMap;
+      popupsObject[`${position}HighMapGrantLotPopUp`]
+        .setLngLat(event.lngLat)
+        .setHTML(highPopUpHTML);
+      if (!popupsObject[`${position}HighMapGrantLotPopUp`].isOpen())
+        popupsObject[`${position}HighMapGrantLotPopUp`].addTo(map);
+    });
+  }
+  global_layer_view_id = event.features[0].id;
+  global_click_ev = true;
 }
 
 function closeNativeGroupsInfo() {
