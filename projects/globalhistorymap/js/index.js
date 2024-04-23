@@ -107,6 +107,7 @@ $(document).ready(function () {
   //#region Layer Visibility Toggles
   // Toggles the visibility of various map layers
   //$(".german-layer-item").hide();
+  //$(".global-layer-item").hide();
   $(".current_lots_layer_item").hide();
   $("#long-island-section-layers").slideUp();
   $("#info-section-layers").slideUp();
@@ -208,6 +209,7 @@ $(document).ready(function () {
     }
   });
 
+  // -> German Layer
   $("#german_layer_items").change(function () {
     $(".german_layer").prop("checked", this.checked);
     if ($(this).prop("checked")) {
@@ -277,6 +279,79 @@ $(document).ready(function () {
       setLayoutVisibilityForBothMaps("germany-lines", "none")
     }
   });
+  // -> German Layer
+
+  // -> Global Layer
+  $("#global_layer_items").change(function () {
+    $(".global_layer").prop("checked", this.checked);
+    if ($(this).prop("checked")) {
+	  /*
+      if (lots_info_length == 0) {
+        getLotsInfo();
+      }
+	  */
+      [
+        "global",
+        "global-highlighted",
+        "global-lines",
+      ].forEach((id) => {
+        setLayoutVisibilityForBothMaps(id, "visible")
+      });
+    } else {
+      [
+        "global",
+        "global-highlighted",
+        "global-lines",
+      ].forEach((id) => {
+        setLayoutVisibilityForBothMaps(id, "none")
+      });
+
+      if (global_layer_view_flag) {
+        closeGlobalInfo();
+      }
+    }
+  });
+
+  $(".global_layer").change(function () {
+    if ($(".global_layer:checked").length == $(".global_layer").length) {
+      $("#global_layer_items").prop("checked", "checked");
+    } else {
+      $("#global_layer_items").prop("checked", false);
+    }
+  });
+
+  $("#global_layer").click(function () {
+    if ($(this).prop("checked")) {
+	  /*
+      if (lots_info_length == 0) {
+        getLotsInfo();
+      }
+	  */
+      ["global", "global-highlighted"].forEach(
+        (id) => {
+          setLayoutVisibilityForBothMaps(id, "visible")
+        }
+      );
+    } else {
+      ["global", "global-highlighted"].forEach(
+        (id) => {
+          setLayoutVisibilityForBothMaps(id, "none")
+        }
+      );
+      if (global_layer_view_flag) {
+        closeGlobalInfo();
+      }
+    }
+  });
+
+  $("#global_layer_lines").click(function () {
+    if ($(this).prop("checked")) {
+      setLayoutVisibilityForBothMaps("global-lines", "visible")
+    } else {
+      setLayoutVisibilityForBothMaps("global-lines", "none")
+    }
+  });
+  // -> Global Layer
 
   // Long Island Native Groups Layer Start
   $("#native_groups_layer_items").change(function () {
