@@ -118,22 +118,23 @@ function addAllLayers(yr, date) {
       [
         { id: `germany-highlighted` },
         { id: `germany` },
-        //{ id: `lot_events-bf43eb${index !== 1 ? "-left" : "-right"}` },
         { id: `germany-lines` },
-        { id: `grant-lots` },
+        { id: `global-highlighted` },
+        { id: `global` },
+        { id: `global-lines` },
       ],
       date
     );
     setupLayerEvents(map, [
       {
         id: `germany`,
-        popup: `${popupMap}DutchGrantPopUp`,
+        popup: `${popupMap}DutchGrantPopUp`,       // ???
         sourceId: "geacron_shps_testing-89qva4",
       },
       {
-        id: `lot_events-bf43eb${index !== 1 ? "-left" : "-right"}`,
-        popup: `${popupMap}PopUp`,
-        sourceId: "lot_events-bf43eb",
+        id: `global`,
+        popup: `${popupMap}DutchGrantPopUp`,       // ???
+        sourceId: "1920-2010_geacron_reprojected-956e43",
       },
     ]);
     // #endregion
