@@ -389,7 +389,7 @@ function GermanyClickHandle(event) {
 
       closeGermanyInfo();
     } else {
-      buildPopUpInfo(event.features[0].properties, "#infoLayerCurrLots");
+      buildPopUpInfo(event.features[0].properties, "#infoLayerCurrLots","germany");
       if ($(".infoLayerElem").first().attr("id") != "infoLayerCurrLots")
         $("#infoLayerCurrLots").insertBefore($(".infoLayerElem").first());
       $("#infoLayerCurrLots").slideDown();
@@ -422,7 +422,7 @@ function GermanyClickHandle(event) {
       });
     }
   } else {
-    buildPopUpInfo(event.features[0].properties, "#infoLayerCurrLots");
+    buildPopUpInfo(event.features[0].properties, "#infoLayerCurrLots","germany");
     if ($(".infoLayerElem").first().attr("id") != "infoLayerCurrLots")
       $("#infoLayerCurrLots").insertBefore($(".infoLayerElem").first());
     $("#infoLayerCurrLots").slideDown();
@@ -522,7 +522,7 @@ function GlobalClickHandle(event) {
 
       closeGlobalInfo();
     } else {
-      buildPopUpInfo(event.features[0].properties, "#infoLayerDutchGrants");
+      buildPopUpInfo(event.features[0].properties, "#infoLayerDutchGrants","global");
       if ($(".infoLayerElem").first().attr("id") != "infoLayerDutchGrants")
         $("#infoLayerDutchGrants").insertBefore($(".infoLayerElem").first());
       $("#infoLayerDutchGrants").slideDown();
@@ -555,7 +555,7 @@ function GlobalClickHandle(event) {
       });
     }
   } else {
-    buildPopUpInfo(event.features[0].properties, "#infoLayerDutchGrants");
+    buildPopUpInfo(event.features[0].properties, "#infoLayerDutchGrants","global");
     if ($(".infoLayerElem").first().attr("id") != "infoLayerDutchGrants")
       $("#infoLayerDutchGrants").insertBefore($(".infoLayerElem").first());
     $("#infoLayerDutchGrants").slideDown();
