@@ -13,7 +13,7 @@
  * }[]} layers
  * @returns {string}
  */
-function renderGermanyLayers(layers) {
+function renderDemoyLayers(layers) {
   const lastBitOfManhattanSectionTemplate = `
 <div class="layer-list-row">
   <input
@@ -388,7 +388,7 @@ function renderCastelloPointsLayerRow(layerData) {
 
 try{
 $("#germany-section-layers").html(
-  renderGermanyLayers(GermnLayerSections)
+  renderDemoyLayers(DemoLayerSections)
 );
 }catch(error){
   console.log(error)
