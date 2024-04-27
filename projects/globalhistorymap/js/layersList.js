@@ -137,14 +137,16 @@ const layers = [
     type: "line",
     source: {
       type: "vector",
-      url: "mapbox://mapny.7l9apcrc",
+      //url: "mapbox://mapny.7l9apcrc",
+	  url: "mapbox://mapny.dfmrnubu",
     },
     layout: {
       visibility: document.getElementById("global_layer_lines").checked
         ? "visible"
         : "none",
     },
-    "source-layer": "1920-2010_geacron_reprojected-956e43",
+    //"source-layer": "1920-2010_geacron_reprojected-956e43",
+	"source-layer": "recombined-akk06o",
     paint: {
       "line-color": "#FF0000",
       "line-width": 3,
