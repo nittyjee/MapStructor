@@ -31,14 +31,14 @@ const buildPopUpInfo = (props, sliderPopupName, type) => {
 				    popup_html = `<h3>Germany</h3>`;
 			        break;
 				case 'global':
-				    popup_html = `<h3>Global</h3>`;
+				    popup_html = `<h3>Boundary</h3>`;
 			        break;
 				default:
-				    popup_html = `<h3>Global</h3>`;
+				    popup_html = `<h3>Boundary</h3>`;
 					return;
 	        }
 			
-        popup_html += `<hr><br><b>${props.label}</b> <br><br><b>Start:</b> <i>${props.start2}</i><br><b>End:</b> <i>${props.end2}</i><br><br>`;
+        popup_html += `<hr><br><b>${props.label}</b> <br><br><b>Border Changes:</b><br><b>Previous:</b> <i>${props.start2}</i><br><b>Next:</b> <i>${props.end2}</i><br><br>`;
 
     $(sliderPopupName).html(popup_html);
 	
