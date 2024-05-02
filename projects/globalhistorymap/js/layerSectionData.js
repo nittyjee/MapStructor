@@ -31,7 +31,7 @@ const DemoLayerSections = [
   {
     id: "global_layer_items",
     caretId: "global-layer-caret",
-    label: "Chronoscio Data Demo",
+    label: "Territory",
     itemSelector: ".global-layer-item",
     zoomTo: "NorthAfrica",
     infoId: "grants-info-layer",
