@@ -1,10 +1,13 @@
 function setupLayerEvents(map, layers) {
   layers.forEach((layer) => {
     let hoveredId = null; // Variable to store the id of the hovered feature
-
-    if (layer.id !== "places-right")
+    
+	console.log(layer.id);
+	
+	
+    if (layer.id !== "global-places")
       map.on("mouseenter", layer.id, (e) => {
-        map.getCanvas().style.cursor = "pointer";
+        //map.getCanvas().style.cursor = "pointer";
 
         // Optionally, you might want to show a popup when hovering
         // This depends on how you've structured your popups
@@ -12,12 +15,16 @@ function setupLayerEvents(map, layers) {
         if (popup) {
           popup.setLngLat(e.lngLat).addTo(map);
         }
-      });
-
+    });
+    
+	
     map.on(
-      layer.id === "places-right" ? "mouseenter" : "mousemove",
+      layer.id === "global-places" ? "mouseenter" : "mousemove",
       layer.id,
       (e) => {
+		  
+		map.getCanvas().style.cursor = "pointer";
+		  
         if (e.features.length > 0) {
 			/*
 		  console.log(layer); // output
@@ -47,7 +54,7 @@ function setupLayerEvents(map, layers) {
             { source: layer.id,  id: hoveredId, sourceLayer: layer.sourceId },
             { hover: true }
           );
-          if (layer.id === "places-right") {
+          if (layer.id === "global-places") {
             var coordinates = e.features[0].geometry.coordinates.slice();
 
             while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
@@ -122,6 +129,8 @@ function addAllLayers(yr, date) {
         { id: `global-highlighted` },
         { id: `global` },
         { id: `global-lines` },
+		{ id: `global-places` },
+        { id: `global-labels` },
       ],
       date
     );
@@ -140,17 +149,18 @@ function addAllLayers(yr, date) {
     // #endregion
 
     // #region - Castello Tax Lots
-    addMapLayer(map, getLayer(`places`));
+    //addMapLayer(map, getLayer(`global-places`));
 
     setupLayerEvents(map, [
       {
-        id: `places`,
+        id: `global-places`,
         popup: `${popupMap}PlacesPopUp`,
-        sourceId: "taxlots-cpwvol",
+        sourceId: "geacron_labels-01fr13",
       },
     ]);
     //#endregion
 
+    /*
     // #region - Long Island Tribes
     addMapLayer(map, getLayer(`native-groups-lines`));
     addMapLayer(map, getLayer(`native-groups-area`));
@@ -168,5 +178,6 @@ function addAllLayers(yr, date) {
       },
     ]);
     //#endregion
+	*/
   });
 }
