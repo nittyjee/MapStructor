@@ -10,6 +10,7 @@ var german_layer_view_id = null,
   castello_layer_view_flag = false,
   germany_layer_view_flag = false,
   global_layer_view_flag = false,
+  global_labels_view_flag = false;
   native_group_layer_view_flag = false;
 
 // #endregion
@@ -22,6 +23,7 @@ var castello_click_ev = false,
   demo_taxlot_click_ev = false,
   global_click_ev = false,
   germany_click_ev = false,
+  global_labels_click_ev = false,
   native_groups_click_ev = false,
   farms_click_ev = false,
   settlements_click_ev = false,
