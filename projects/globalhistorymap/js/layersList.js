@@ -153,4 +153,67 @@ const layers = [
       "line-opacity": 0.8,
     },
   },
+  {
+    id: "global-places",
+    type: "circle",
+    source: {
+      type: "vector",
+      url: "mapbox://mapny.91p8c56l",
+    },
+    layout: {
+      visibility: document.getElementById("global_labels_points").checked
+        ? "visible"
+        : "none",
+    },
+    "source-layer": "geacron_labels-01fr13",
+    paint: {
+      "circle-color": "#FF0000",
+      "circle-opacity": [
+        "case",
+        ["boolean", ["feature-state", "hover"], false],
+        0.5,
+        1,
+      ],
+      "circle-stroke-width": 2,
+      "circle-stroke-color": "#FF0000",
+      "circle-stroke-opacity": [
+        "case",
+        ["boolean", ["feature-state", "hover"], false],
+        1,
+        0,
+      ],
+    },
+  },
+  {
+    id: "global-labels",
+    type: "symbol",
+    source: {
+      type: "vector",
+      url: "mapbox://mapny.91p8c56l",
+    },
+    layout: {
+      visibility: document.getElementById("global_labels").checked ? "visible" : "none",
+      "text-field": "{label}",
+      "text-offset": [0, 2],
+      "text-size": {
+        stops: [
+          [0, 4],
+          [22, 34],
+        ],
+      },
+    },
+    "source-layer": "geacron_labels-01fr13",
+    paint: {
+      "text-color": "#000080",
+      "text-halo-color": "#ffffff",
+      "text-halo-width": 5,
+      "text-halo-blur": 1,
+      "text-opacity": {
+        stops: [
+          [2, 0],
+          [3, 1],
+        ],
+      },
+    },
+  },
 ];
