@@ -9,7 +9,7 @@ function generatePopupContent(id, features, map) {
     [id === "lot_events-bf43eb-right"
       ? "lot_events-bf43eb-right"
       : `lot_events-bf43eb-left`]: lotEventsPopupContent,
-    [`places`]: castelloEventsPopUpContent,
+    [`global-places`]: globalPlacesEventsPopUpContent,
     [`native-groups-area`]: longIslandPopupContent,
   };
 
@@ -67,11 +67,11 @@ function lotEventsPopupContent(features) {
 }
 
 // Generates popup content for Castello Events, showing taxlot information from 1660.
-function castelloEventsPopUpContent(features) {
+function globalPlacesEventsPopUpContent(features) {
   return (
-    "<div class='infoLayerCastelloPopUp'><b>Taxlot (1660):</b><br>" +
-    features[0].properties.LOT2 +
-    "</div>"
+    "<div class='infoLayerCastelloPopUp'><i>" +
+    features[0].properties.label +
+    "</i></div>"
   );
 }
 
@@ -167,9 +167,9 @@ var demo_layer_feature_props = null,
           DemoClickHandle(e);
         }
       )
-      .on("click", `places`, function (e) {
+      .on("click", `global-places`, function (e) {
           console.log(e.features[0].properties)
-          CastelloClickHandle(e);
+          GlobalPlacesClickHandle(e);
       })
       //.on("click", `dutch_grants-5ehfqe`, function (e) {
 	  .on("click", `germany`, function (e) {
@@ -199,7 +199,7 @@ var demo_layer_feature_props = null,
 function DefaultHandle() {
   if (
     !demo_taxlot_click_ev &&
-    !castello_click_ev &&
+    !global_labels_click_ev &&
     !germany_click_ev &&
 	!global_click_ev 
   ) {
@@ -209,7 +209,7 @@ function DefaultHandle() {
   }
 
   demo_taxlot_click_ev = false;
-  castello_click_ev = false;
+  global_labels_click_ev = false;
   germany_click_ev = false;
   global_click_ev = false;
 }
@@ -218,17 +218,20 @@ function DefaultHandle() {
 
 //#region Close Info and ClickHandle Functions
 
-function closeCastelloInfo() {
+function closeGlobalPlacesInfo() {
   $("#infoLayerCastello").slideUp();
-  castello_layer_view_flag = false;
+  global_labels_view_flag = false;
   ["after", "before"].forEach((position) => {
     if (popupsObject[`${position}HighCastelloPopUp`].isOpen())
       popupsObject[`${position}HighCastelloPopUp`].remove();
   });
 }
 
-function CastelloClickHandle(event) {
-  if (castello_layer_view_flag && clickedStateId == event.features[0].id) {
+function GlobalPlacesClickHandle(event) {
+	
+   var highPopUpHTML = "<div class='infoLayerCastelloPopUp'><b>" + event.features[0].properties.label + "</b></div>";
+	
+  if (global_labels_view_flag && clickedStateId == event.features[0].id) {
     if ($("#view-hide-layer-panel").length > 0)
       if (!layer_view_flag) {
         $("#rightInfoBar").css("display", "block");
@@ -237,7 +240,7 @@ function CastelloClickHandle(event) {
         }, 500);
       }
 
-    closeCastelloInfo();
+    closeGlobalPlacesInfo();
   } else {
     clickedStateId = event.features[0].id;
     var coordinates = [];
@@ -253,7 +256,7 @@ function CastelloClickHandle(event) {
     ["before", "after"].forEach((position) => {
       popupsObject[`${position}HighCastelloPopUp`]
         .setLngLat(coordinates)
-        .setHTML(buildPopUpInfo(event.features[0].properties,undefined, "popup"));
+        .setHTML(highPopUpHTML);
 
       if (!popupsObject[`${position}HighCastelloPopUp`].isOpen())
         popupsObject[`${position}HighCastelloPopUp`].addTo(
@@ -261,19 +264,22 @@ function CastelloClickHandle(event) {
         );
     });
 
+
+
     if ($(".infoLayerElem").first().attr("id") != "infoLayerCastello")
       $("#infoLayerCastello").insertBefore($(".infoLayerElem").first());
     $("#infoLayerCastello")
-      .html(buildPopUpInfo(event.features[0].properties, undefined, "info-panel"))
-      .slideDown();
+      .html(buildPopUpInfo(event.features[0].properties, "#infoLayerCastello", "labels"));
+	  
+     $("#infoLayerCastello").slideDown();
 
     if (!layer_view_flag)
       if ($("#view-hide-layer-panel").length > 0)
         $("#view-hide-layer-panel").trigger("click");
     //}
-    castello_layer_view_flag = true;
+    global_labels_view_flag = true;
   }
-  castello_click_ev = true;
+  global_labels_click_ev = true;
 }
 
 function closeDemoInfo() {
@@ -482,7 +488,7 @@ function closeGlobalInfo() {
   afterMap.setFeatureState(
     {
       source: "global-highlighted",
-      sourceLayer: "1920-2010_geacron_reprojected-956e43",
+      sourceLayer: "geacron_mapbox",
       id: global_layer_view_id,
     },
     { hover: false }
@@ -490,7 +496,7 @@ function closeGlobalInfo() {
   beforeMap.setFeatureState(
     {
       source: "global-highlighted",
-      sourceLayer: "1920-2010_geacron_reprojected-956e43",
+      sourceLayer: "geacron_mapbox",
       id: global_layer_view_id,
     },
     { hover: false }
@@ -532,7 +538,7 @@ function GlobalClickHandle(event) {
       afterMap.setFeatureState(
         {
           source: "global-highlighted",
-          sourceLayer: "1920-2010_geacron_reprojected-956e43",
+          sourceLayer: "geacron_mapbox",
           id: global_layer_view_id,
         },
         { hover: true }
@@ -540,7 +546,7 @@ function GlobalClickHandle(event) {
       beforeMap.setFeatureState(
         {
           source: "global-highlighted",
-          sourceLayer: "1920-2010_geacron_reprojected-956e43",
+          sourceLayer: "geacron_mapbox",
           id: global_layer_view_id,
         },
         { hover: true }
@@ -566,7 +572,7 @@ function GlobalClickHandle(event) {
     afterMap.setFeatureState(
       {
         source: "global-highlighted",
-        sourceLayer: "1920-2010_geacron_reprojected-956e43",
+        sourceLayer: "geacron_mapbox",
         id: global_layer_view_id,
       },
       { hover: false }
@@ -574,7 +580,7 @@ function GlobalClickHandle(event) {
     afterMap.setFeatureState(
       {
         source: "global-highlighted",
-        sourceLayer: "1920-2010_geacron_reprojected-956e43",
+        sourceLayer: "geacron_mapbox",
         id: event.features[0].id,
       },
       { hover: true }
@@ -582,7 +588,7 @@ function GlobalClickHandle(event) {
     beforeMap.setFeatureState(
       {
         source: "global-highlighted",
-        sourceLayer: "1920-2010_geacron_reprojected-956e43",
+        sourceLayer: "geacron_mapbox",
         id: global_layer_view_id,
       },
       { hover: false }
@@ -590,7 +596,7 @@ function GlobalClickHandle(event) {
     beforeMap.setFeatureState(
       {
         source: "global-highlighted",
-        sourceLayer: "1920-2010_geacron_reprojected-956e43",
+        sourceLayer: "geacron_mapbox",
         id: event.features[0].id,
       },
       { hover: true }
