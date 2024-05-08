@@ -353,6 +353,80 @@ $(document).ready(function () {
   });
   // -> Global Layer
 
+  // -> Global Labels
+   
+  $("#global_labels_items").change(function () {
+    $(".global-labels").prop("checked", this.checked);
+    if ($(this).prop("checked")) {
+      [
+        "global-places",
+        "global-labels",
+      ].forEach((id) => {
+        setLayoutVisibilityForBothMaps(id, "visible")
+      });
+    } else {
+      [
+        "global-places",
+        "global-labels",
+      ].forEach((id) => {
+        setLayoutVisibilityForBothMaps(id, "none")
+      });
+      if (global_labels_view_flag) {
+         closeGlobalPlacesInfo();
+      }
+	  
+    }
+  });
+   
+   
+  $(".global-labels").change(function () {
+    if ($(".global-labels:checked").length == $(".global-labels").length) {
+      $("#global_labels_items").prop("checked", "checked");
+    } else {
+      $("#global_labels_items").prop("checked", false);
+    }
+  });
+   
+   
+  $("#global_labels_points").click(function () {
+    if ($(this).prop("checked")) {
+	  /*
+      if (lots_info_length == 0) {
+        getLotsInfo();
+      }
+	  */
+      ["global-places"].forEach(
+        (id) => {
+          setLayoutVisibilityForBothMaps(id, "visible")
+        }
+      );
+    } else {
+      ["global-places"].forEach(
+        (id) => {
+          setLayoutVisibilityForBothMaps(id, "none")
+        }
+      );
+		
+     
+      if (global_labels_view_flag) {
+         closeGlobalPlacesInfo();
+      }
+	  
+    }
+  });
+   
+ $("#global_labels").click(function () {
+    if ($(this).prop("checked")) {
+      setLayoutVisibilityForBothMaps("global-labels", "visible")
+    } else {
+      setLayoutVisibilityForBothMaps("global-labels", "none")
+    }
+  });
+   
+   
+  // -> Global Labels
+  
+
   // Long Island Native Groups Layer Start
   $("#native_groups_layer_items").change(function () {
     $(".native_groups_layer").prop("checked", this.checked);
