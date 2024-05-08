@@ -56,6 +56,36 @@ const DemoLayerSections = [
     topLayerClass: "global-layer",
     iconType: "square",
     isSolid: false,
+  },
+  //=====================>>>>>
+  {
+    id: "global_labels_items",
+    caretId: "global-labels-caret",
+    label: "Golbal Labels",
+    itemSelector: ".global-labels-item",
+    zoomTo: "NorthAfrica",
+    infoId: "grants-info-labels",
+    type: "group",
+  },
+  {
+    id: "global_labels_points",
+    className: "global-labels",
+    name: "global_labels_points",
+    iconColor: "#ff0000",
+    label: "Places",
+    topLayerClass: "global-labels",
+    iconType: "circle",
+    isSolid: true,
+  },
+  {
+    id: "global_labels",
+    className: "global-labels",
+    name: "global_labels",
+    iconColor: "#0b0ee5",
+    label: "Labels",
+    topLayerClass: "global-labels",
+    iconType: "comment-dots",
+    isSolid: true,
   }
 ];
 
