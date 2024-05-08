@@ -33,6 +33,9 @@ const buildPopUpInfo = (props, sliderPopupName, type) => {
 				case 'global':
 				    popup_html = `<h3>Boundary</h3>`;
 			        break;
+				case 'labels':
+				    popup_html = `<h3>Labels</h3>`;
+			        break;
 				default:
 				    popup_html = `<h3>Boundary</h3>`;
 					return;
