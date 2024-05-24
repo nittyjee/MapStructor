@@ -1,3 +1,4 @@
+
 const layers = [
   {
     //ID: CHANGE THIS, 1 OF 3
@@ -105,24 +106,31 @@ const layers = [
     toggleElement: "global_layer",
   },
   {
-    //ID: CHANGE THIS, 1 OF 3
+    // Main layer for global map with random colors
     id: "global",
     type: "fill",
     source: {
       type: "vector",
-      //URL: CHANGE THIS, 2 OF 3
-      //url: "mapbox://mapny.18d146m2",
-	  url: "mapbox://mapny.drir2c0i",
+      url: "mapbox://mapny.drir2c0i",
     },
     layout: {
-      visibility: document.getElementById("global_layer").checked
-        ? "visible"
-        : "none",
+      visibility: document.getElementById("global_layer").checked ? "visible" : "none",
     },
-    //"source-layer": "output",
-	"source-layer": "geacron_mapbox_full",
+    "source-layer": "geacron_mapbox_full",
     paint: {
-      "fill-color": "#e3ed58",
+      "fill-color": [
+        "match",
+        ["get", "color_id2"],
+        ...Array.from({ length: 175 }, (_, i) => {
+          const letters = '0123456789ABCDEF';
+          let color = '#';
+          for (let j = 0; j < 6; j++) {
+            color += letters[Math.floor(Math.random() * 16)];
+          }
+          return [i + 1, color];
+        }).flat(),
+        "#000000" // Default color if no match is found
+      ],
       "fill-opacity": [
         "case",
         ["boolean", ["feature-state", "hover"], false],
