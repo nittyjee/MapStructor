@@ -143,7 +143,7 @@ function addAllLayers(yr, date) {
       {
         id: `global`,
         popup: `${popupMap}DutchGrantPopUp`,       // ???
-        sourceId: "1920-2010_geacron_reprojected-956e43",
+        sourceId: "geacron_mapbox_full",
       },
     ]);
     // #endregion
