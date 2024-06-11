@@ -157,22 +157,22 @@ $(document).ready(function () {
       if (demo_layer_view_flag) {
         if (ui.value <= sliderStartDrag) {
           $(this).slider("value", sliderStartDrag);
-          changeDate(sliderStartDrag);
+          //changeDate(sliderStartDrag);
           $("#date").text(moment.unix(sliderStartDrag).format("DD MMM YYYY"));
           return false;
         }
         if (ui.value >= sliderEndDrag) {
           $(this).slider("value", sliderEndDrag);
-          changeDate(sliderEndDrag);
+          //changeDate(sliderEndDrag);
           $("#date").text(moment.unix(sliderEndDrag).format("DD MMM YYYY"));
           return false;
         }
         if (ui.value <= sliderEndDrag && ui.value >= sliderStartDrag) {
-          changeDate(ui.value);
+          //changeDate(ui.value);
           $("#date").text(moment.unix(ui.value).format("DD MMM YYYY"));
         }
       } else {
-        changeDate(ui.value);
+        //changeDate(ui.value);
         $("#date").text(moment.unix(ui.value).format("DD MMM YYYY"));
       }
     },
@@ -188,7 +188,9 @@ $(document).ready(function () {
         })
         .text(moment.unix(sliderMiddle).format("MM/DD/YYYY"));
     },
-    change: function (event, ui) {},
+    change: function (event, ui) {
+	    changeDate(ui.value);
+    },
   });
   $("#date").text(
     moment.unix($("#slider").slider("values", 0)).format("DD MMM YYYY")
