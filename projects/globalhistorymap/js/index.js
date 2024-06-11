@@ -188,7 +188,8 @@ $(document).ready(function () {
         })
         .text(moment.unix(sliderMiddle).format("MM/DD/YYYY"));
     },
-    change: function (event, ui) {
+    change: function (event, ui) {},
+    stop: function (event, ui) {
 	    changeDate(ui.value);
     },
   });
