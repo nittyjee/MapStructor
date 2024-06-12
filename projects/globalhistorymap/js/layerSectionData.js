@@ -61,12 +61,13 @@ const DemoLayerSections = [
   {
     id: "global_labels_items",
     caretId: "global-labels-caret",
-    label: "Golbal Labels",
+    label: "Global Labels",
     itemSelector: ".global-labels-item",
     zoomTo: "NorthAfrica",
     infoId: "grants-info-labels",
     type: "group",
   },
+  /*
   {
     id: "global_labels_points",
     className: "global-labels",
@@ -77,6 +78,7 @@ const DemoLayerSections = [
     iconType: "circle",
     isSolid: true,
   },
+  */
   {
     id: "global_labels",
     className: "global-labels",

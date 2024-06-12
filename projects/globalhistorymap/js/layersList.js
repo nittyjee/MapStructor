@@ -89,7 +89,7 @@ const layers = [
     layout: {
       visibility: document.getElementById("global_layer").checked
         ? "visible"
-        : "none",
+        : "visible",
     },
     //"source-layer": "output",
 	"source-layer": "geacron_mapbox_full",
@@ -161,6 +161,7 @@ const layers = [
       "line-opacity": 0.8,
     },
   },
+  /*
   {
     id: "global-places",
     type: "circle",
@@ -192,6 +193,7 @@ const layers = [
       ],
     },
   },
+  */
   {
     id: "global-labels",
     type: "symbol",
@@ -200,20 +202,31 @@ const layers = [
       url: "mapbox://mapny.91p8c56l",
     },
     layout: {
-      visibility: document.getElementById("global_labels").checked ? "visible" : "none",
+      visibility: document.getElementById("global_labels").checked ? "visible" : "visible",
       "text-field": "{label}",
-      "text-offset": [0, 2],
-      "text-size": {
-        stops: [
-          [0, 4],
-          [22, 34],
-        ],
-      },
+      //"text-offset": [0, 2],
+      "text-size": [
+        "interpolate",
+        ["linear"],
+        ["zoom"],
+        2.18, 11,
+        3.18, 12,
+        5.18, 14,
+        6.18, 16
+      ],
     },
     "source-layer": "geacron_labels-01fr13",
     paint: {
       "text-color": "#000080",
       "text-halo-color": "#ffffff",
+
+      "text-halo-width": [
+        "interpolate",
+        ["linear"],
+        ["zoom"],
+        2.18, 2,
+        6.18, 3
+      ],
       "text-halo-width": 5,
       "text-halo-blur": 1,
       "text-opacity": {
