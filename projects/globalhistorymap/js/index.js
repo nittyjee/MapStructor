@@ -242,6 +242,7 @@ $(document).ready(function () {
       }
     }
   });
+   
 
   $(".german_layer").change(function () {
     if ($(".german_layer:checked").length == $(".german_layer").length) {
@@ -285,6 +286,12 @@ $(document).ready(function () {
   // -> German Layer
 
   // -> Global Layer
+  
+   $("#global_layer_items").prop("disabled", true);
+   $(".global_layer").prop("disabled", true);
+   $("#global_layer_items").prop("checked", true);
+   $(".global_layer").prop("checked", true);
+  
   $("#global_layer_items").change(function () {
     $(".global_layer").prop("checked", this.checked);
     if ($(this).prop("checked")) {
@@ -357,6 +364,11 @@ $(document).ready(function () {
   // -> Global Layer
 
   // -> Global Labels
+   
+  $("#global_labels_items").prop("disabled", true);
+  $(".global-labels").prop("disabled", true);
+  $("#global_labels_items").prop("checked", true);
+  $(".global-labels").prop("checked", true);
    
   $("#global_labels_items").change(function () {
     $(".global-labels").prop("checked", this.checked);
