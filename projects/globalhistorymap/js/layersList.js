@@ -114,7 +114,7 @@ const layers = [
       url: "mapbox://mapny.drir2c0i",
     },
     layout: {
-      visibility: document.getElementById("global_layer").checked ? "visible" : "none",
+      visibility: document.getElementById("global_layer").checked ? "visible" : "visible",
     },
     "source-layer": "geacron_mapbox_full",
     paint: {
@@ -151,7 +151,7 @@ const layers = [
     layout: {
       visibility: document.getElementById("global_layer_lines").checked
         ? "visible"
-        : "none",
+        : "visible",
     },
     //"source-layer": "1920-2010_geacron_reprojected-956e43",
 	"source-layer": "geacron_borders",
