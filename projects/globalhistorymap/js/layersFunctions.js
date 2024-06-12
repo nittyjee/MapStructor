@@ -4,6 +4,20 @@ function setupLayerEvents(map, layers) {
     
 	console.log(layer.id);
 	
+	if(layer.id == "global") {
+		setTimeout(function () {
+            $("#global_layer_items").prop("disabled", false);
+            $(".global_layer").prop("disabled", false);
+		}, 750);
+	}
+    
+	if(layer.id == "global-places") {
+		setTimeout(function () {
+            $("#global_labels_items").prop("disabled", false);
+            $(".global-labels").prop("disabled", false);
+        }, 250);
+    }
+	
 	
     if (layer.id !== "global-places")
       map.on("mouseenter", layer.id, (e) => {
