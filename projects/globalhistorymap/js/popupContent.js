@@ -488,7 +488,7 @@ function closeGlobalInfo() {
   afterMap.setFeatureState(
     {
       source: "global-highlighted",
-      sourceLayer: "geacron_mapbox",
+      sourceLayer: "geacron_mapbox_full",
       id: global_layer_view_id,
     },
     { hover: false }
@@ -496,7 +496,7 @@ function closeGlobalInfo() {
   beforeMap.setFeatureState(
     {
       source: "global-highlighted",
-      sourceLayer: "geacron_mapbox",
+      sourceLayer: "geacron_mapbox_full",
       id: global_layer_view_id,
     },
     { hover: false }
@@ -538,7 +538,7 @@ function GlobalClickHandle(event) {
       afterMap.setFeatureState(
         {
           source: "global-highlighted",
-          sourceLayer: "geacron_mapbox",
+          sourceLayer: "geacron_mapbox_full",
           id: global_layer_view_id,
         },
         { hover: true }
@@ -546,7 +546,7 @@ function GlobalClickHandle(event) {
       beforeMap.setFeatureState(
         {
           source: "global-highlighted",
-          sourceLayer: "geacron_mapbox",
+          sourceLayer: "geacron_mapbox_full",
           id: global_layer_view_id,
         },
         { hover: true }
@@ -572,7 +572,7 @@ function GlobalClickHandle(event) {
     afterMap.setFeatureState(
       {
         source: "global-highlighted",
-        sourceLayer: "geacron_mapbox",
+        sourceLayer: "geacron_mapbox_full",
         id: global_layer_view_id,
       },
       { hover: false }
@@ -580,7 +580,7 @@ function GlobalClickHandle(event) {
     afterMap.setFeatureState(
       {
         source: "global-highlighted",
-        sourceLayer: "geacron_mapbox",
+        sourceLayer: "geacron_mapbox_full",
         id: event.features[0].id,
       },
       { hover: true }
@@ -588,7 +588,7 @@ function GlobalClickHandle(event) {
     beforeMap.setFeatureState(
       {
         source: "global-highlighted",
-        sourceLayer: "geacron_mapbox",
+        sourceLayer: "geacron_mapbox_full",
         id: global_layer_view_id,
       },
       { hover: false }
@@ -596,7 +596,7 @@ function GlobalClickHandle(event) {
     beforeMap.setFeatureState(
       {
         source: "global-highlighted",
-        sourceLayer: "geacron_mapbox",
+        sourceLayer: "geacron_mapbox_full",
         id: event.features[0].id,
       },
       { hover: true }

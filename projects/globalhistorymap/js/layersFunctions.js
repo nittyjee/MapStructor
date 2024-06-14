@@ -157,7 +157,7 @@ function addAllLayers(yr, date) {
       {
         id: `global`,
         popup: `${popupMap}DutchGrantPopUp`,       // ???
-        sourceId: "geacron_mapbox",
+        sourceId: "geacron_mapbox_full",
       },
     ]);
     // #endregion
