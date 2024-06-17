@@ -84,7 +84,7 @@ const layers = [
       type: "vector",
       //URL: CHANGE THIS, 2 OF 3
       //url: "mapbox://mapny.18d146m2",
-	  url: "mapbox://mapny.drir2c0i",
+	  url: "mapbox://mapny.c9zt9yge",
     },
     layout: {
       visibility: document.getElementById("global_layer").checked
@@ -92,7 +92,7 @@ const layers = [
         : "visible",
     },
     //"source-layer": "output",
-	"source-layer": "geacron_mapbox_full",
+	"source-layer": "geacron_mapbox",
     paint: {
       "fill-color": "#e3ed58",
       "fill-opacity": [
@@ -111,17 +111,17 @@ const layers = [
     type: "fill",
     source: {
       type: "vector",
-      url: "mapbox://mapny.drir2c0i",
+      url: "mapbox://mapny.c9zt9yge",
     },
     layout: {
       visibility: document.getElementById("global_layer").checked ? "visible" : "visible",
     },
-    "source-layer": "geacron_mapbox_full",
+    "source-layer": "geacron_mapbox",
     paint: {
       "fill-color": [
         "match",
         ["get", "color_id2"],
-        ...Array.from({ length: 175 }, (_, i) => {
+        ...Array.from({ length: 400 }, (_, i) => {
           const letters = '0123456789ABCDEF';
           let color = '#';
           for (let j = 0; j < 6; j++) {
@@ -224,6 +224,7 @@ const layers = [
         "interpolate",
         ["linear"],
         ["zoom"],
+        1, 1,
         2.18, 2,
         6.18, 3
       ],
@@ -231,8 +232,8 @@ const layers = [
       "text-halo-blur": 1,
       "text-opacity": {
         stops: [
-          [2, 0],
-          [3, 1],
+          [1, 0],
+          [2, 1],
         ],
       },
     },
