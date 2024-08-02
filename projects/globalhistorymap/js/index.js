@@ -137,6 +137,7 @@ $(document).ready(function () {
 
  var sliderTimer = null,
      sliderTimerPeriod = 500,
+	 sliderTempVal = 0,
 	 sliderLastVal = 0;
 
   $("#slider").slider({
@@ -198,8 +199,10 @@ $(document).ready(function () {
 		sliderLastVal = ui.value;
 		
 		sliderTimer = setInterval(function() {
-			if($("#slider").slider("value") != sliderLastVal) {
-				sliderLastVal = $("#slider").slider("value");
+                        sliderTempVal = $("#slider").slider("value");
+			
+			if(sliderTempVal != sliderLastVal) {
+				sliderLastVal = sliderTempVal;
 				changeDate(sliderLastVal);
 			}
         }, sliderTimerPeriod);
